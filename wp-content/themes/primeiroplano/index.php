@@ -47,8 +47,7 @@
 <?php } ?>
 
 
-
-
+<?php get_template_part( 'template-parts/nav-submenu' ); ?>
 
 
 <?php
@@ -63,7 +62,7 @@ if ($noticias->have_posts()) : ?>
 
 		<div class="wrapper">
 
-			<a href="<?= SITEHOME ?>/noticias" title="<?php _e('Notícias', 'spatheme'); ?>" class="ultimas-noticias"><?php _e('Últimas <strong>notícias</strong>', 'spatheme'); ?></a>
+			<h2 class="section-title"><a href="<?= SITEHOME ?>/noticias" title="Notícias">Últimas notícias</a></h2>
 
 			<div class="row flexbox">
 
@@ -78,15 +77,13 @@ if ($noticias->have_posts()) : ?>
 
 						<p><?php the_excerpt(); ?></p>
 
-						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="leiaMais"><?php _e('Leia Mais', 'spatheme'); ?></a>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="leiaMais">Leia Mais</a>
 					</div>
 				</article>
 
 			<?php endwhile; ?>
 
 			</div>
-
-			<a href="<?= SITEHOME ?>/noticias" title="<?php _e('Notícias', 'spatheme'); ?>" class="mais-noticias"><?php _e('leia mais notícias', 'spatheme'); ?></a>
 		</div>
 
 	</section>

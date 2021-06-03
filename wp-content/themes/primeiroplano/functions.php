@@ -27,7 +27,7 @@ if( function_exists('acf_add_options_page') )
 
 
 /************* THUMBNAIL SIZE OPTIONS *********************/
-add_image_size( 'square', 120, 120, true);
+add_image_size( 'square', 356, 356, true);
 
 
 /************* CALL CORE FUNCTIONS *********************/

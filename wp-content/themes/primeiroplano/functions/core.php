@@ -43,11 +43,11 @@ function spades_scripts_and_styles() {
 
     // register styles
 
-    wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;900&display=swap', array(), '', 'all' );
+    wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap', array(), '', 'all' );
     wp_register_style( 'fontawesome-css', get_stylesheet_directory_uri() . '/fonts/font-awesome.min.css', array(), '', 'all' );
     wp_register_style( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.css', array(), '', 'all' );
-    wp_register_style( 'spades-css', get_stylesheet_directory_uri() . '/style.css?v=20.08.06', array(), '', 'all' );
-    wp_register_style( 'responsive-css', get_stylesheet_directory_uri() . '/css/responsive.css?v=20.08.06', array(), '', 'all' );
+    wp_register_style( 'spades-css', get_stylesheet_directory_uri() . '/style.css?v=21.06.02', array(), '', 'all' );
+    wp_register_style( 'responsive-css', get_stylesheet_directory_uri() . '/responsive.css?v=21.06.02', array(), '', 'all' );
 
 
     // enqueue styles
@@ -59,25 +59,14 @@ function spades_scripts_and_styles() {
 
 
     // register scripts
-    wp_register_script( 'lavalamp-js', get_stylesheet_directory_uri() . '/js/jquery.lavalamp.min.js', array( 'jquery' ), '', true );
     wp_register_script( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.min.js', array( 'jquery' ), '', true );
     wp_register_script( 'fitvids', get_stylesheet_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ), '', true );
-    wp_register_script( 'jquery-maskedinput', get_stylesheet_directory_uri() . '/js/jquery.maskedinput.min.js', array( 'jquery' ), '', true );
-    wp_register_script( 'cidades-estados', get_stylesheet_directory_uri() . '/js/cidades-estados-1.2-utf8.js', array( 'jquery' ), '', true );
-
-    wp_register_script( 'chart', get_stylesheet_directory_uri() . '/js/chart.min.js', array( 'jquery' ), '', true );
-    wp_register_script( 'chart-datalabel', get_stylesheet_directory_uri() . '/js/chartjs-plugin-datalabels.js', array( 'jquery' ), '', true );
-    wp_register_script( 'spades-js', get_stylesheet_directory_uri() . '/js/scripts.js?v=20.08.06', array( 'jquery' ), '', true );
+    wp_register_script( 'spades-js', get_stylesheet_directory_uri() . '/js/scripts.js?v=21.06.02', array( 'jquery' ), '', true );
 
 
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'slick' );
-    wp_enqueue_script( 'lavalamp-js' );
     wp_enqueue_script( 'fitvids' );
-    wp_enqueue_script( 'jquery-maskedinput' );
-    wp_enqueue_script( 'cidades-estados' );
-    wp_enqueue_script( 'chart');
-    wp_enqueue_script( 'chart-datalabel');
     wp_enqueue_script( 'spades-js' );
 
   }
@@ -98,6 +87,8 @@ function spades_theme_support() {
 
 	// Menu MAIN
 	register_nav_menu('MainMenu', 'Menu Principal');
+    register_nav_menu('SubMenu', 'Submenu');
+    register_nav_menu('Topbar', 'Topbar');
 
 
 } /* end Theme Support */
