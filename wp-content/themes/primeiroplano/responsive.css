@@ -1,0 +1,498 @@
+
+/* ========================================================================================================
+    RESPONSIVE
+======================================================================================================== */
+
+@media only screen and (max-width: 1290px ) {
+
+	/* MENU ICON */
+/*    .menuIcon {position: absolute; left:300px; top: 38px; z-index:9999; width: 30px; height: 25px; line-height: 25px; background: url('../images/ico_menu.svg') left top no-repeat; background-size: 30px 25px; cursor: pointer; text-indent: -9999px; padding-left: 35px; display: block;}
+
+    #header.small .menuIcon {top: 14px;}*/
+
+
+    #menuIcon {position: absolute; left: 270px; top:23px; z-index: 105; display: block;}
+
+	/* HAMBURGER */
+	.hamburger {width: 33px; height: 54px; position: absolute; left:0px; top:0px; z-index:105; font-size: 0; text-indent: -9999px; -webkit-appearance: none; box-shadow: none; border-radius: 0; border: none; cursor: pointer; opacity:0.8; float:none; display: block;  overflow: hidden; margin: 0; padding: 0;
+	    -webkit-transition: all 0.2s ease-in-out;
+	    -moz-transition: all 0.2s ease-in-out;
+	    -o-transition: all 0.2s ease-in-out;
+	    -ms-transition: all 0.2s ease-in-out;
+	    transition: all 0.2s ease-in-out; }
+
+	.hamburger:hover { opacity:1;}
+	.hamburger.hidden {opacity:0;}
+	.hamburger:focus {outline: none;}
+
+	.hamburger span {width: 100%; height: 3px; position: absolute; top: 25px; left: 0; right: 0; display: block; background-color: #fff;}
+	.hamburger span::before,
+	.hamburger span::after {content: ""; width: 100%; height: 3px; position: absolute; left: 0; display: block; background-color: #fff;}
+
+	.hamburger.is-active span, .hamburger.is-active span::before, .hamburger.is-active span::after {background-color: #fff;}
+	.hamburger span::before {top: -9px;}
+	.hamburger span::after {bottom: -9px;}
+
+	.hamburger-rotate {background-color:transparent;}
+	.hamburger-rotate span {transition: background 0s 0s;}
+	.hamburger-rotate span::before,
+	.hamburger-rotate span::after {
+	    -webkit-transition-duration: 0.3s, 0.3s;
+	    -moz-transition-duration: 0.3s, 0.3s;
+	    -o-transition-duration: 0.3s, 0.3s;
+	    -ms-transition-duration: 0.3s, 0.3s;
+	    transition-duration: 0.3s, 0.3s;
+	    -webkit-transition-delay: 0.3s, 0s;
+	    -moz-transition-delay: 0.3s, 0s;
+	    -o-transition-delay: 0.3s, 0s;
+	    -ms-transition-delay: 0.3s, 0s;
+	    transition-delay: 0.3s, 0s;
+	}
+	.hamburger-rotate span::before {
+	    -webkit-transition-property: top, transform;
+	    -moz-transition-property: top, transform;
+	    -o-transition-property: top, transform;
+	    -ms-transition-property: top, transform;
+	    transition-property: top, transform;
+	}
+	.hamburger-rotate span::after {
+	    -webkit-transition-property: bottom, transform;
+	    -moz-transition-property: bottom, transform;
+	    -o-transition-property: bottom, transform;
+	    -ms-transition-property: bottom, transform;
+	    transition-property: bottom, transform;
+	}
+	.hamburger-rotate.is-active {
+	    background-color: transparent;
+	}
+	.hamburger-rotate.is-active span {
+	    background: none;
+	}
+	.hamburger-rotate.is-active span::before {
+	    top: 0;
+	    -webkit-transform: rotate(45deg);
+	    -moz-transform: rotate(45deg);
+	    -o-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	    transform: rotate(45deg);
+	}
+	.hamburger-rotate.is-active span::after {
+	    bottom: 0;
+	    -webkit-transform: rotate(-45deg);
+	    -moz-transform: rotate(-45deg);
+	    -o-transform: rotate(-45deg);
+	    -ms-transform: rotate(-45deg);
+	    transform: rotate(-45deg);
+	}
+	.hamburger-rotate.is-active span::before,
+	.hamburger-rotate.is-active span::after {
+	    -webkit-transition-delay: 0s, 0.3s;
+	    -moz-transition-delay: 0s, 0.3s;
+	    -o-transition-delay: 0s, 0.3s;
+	    -ms-transition-delay: 0s, 0.3s;
+	    transition-delay: 0s, 0.3s;
+	}
+
+
+	#header.small #menuIcon {top: 0px; left: 207px;}
+
+
+
+
+	/* MENU */
+	.backLava {display: none !important;}
+
+	#menu {width: 100%; height:calc(100% - 90px); position: fixed; left: 0; top: 90px; background-color:#686548; z-index: 999; display: none;}
+	#menu.opened {display: block;}
+
+	body.admin-bar #menu {top: 122px;}
+
+	#menu ul {position: absolute; top: 10px; left: 275px;}
+
+	#menu ul li {float: left; clear: left; margin:0 0 20px;}
+	#menu ul li:last-child {margin-bottom: 0;}
+	#menu ul li a {font-size: 2.4rem; font-weight: 600; color: #f3f3f3; display: block;}
+
+	#menu ul li a:hover {color: #c3d389;}
+	/*#menu ul li a:hover {color: #89bca9;}*/
+
+
+	#menu ul li ul, #header.small #menu ul li ul {width: auto; height: auto; position: static; top: auto; padding: 20px; margin: 10px 0; float: left; clear: left;}
+
+
+	/* MENU HEADER SMALL */
+	#header.small #menu {top: 54px; height:calc(100% - 54px);}
+	body.admin-bar #header.small #menu {top: 86px;}
+	#header.small #menu ul {left: 210px;}
+
+
+
+	/* HOME */
+	.about {width: 55%; padding:60px;}
+	.about h2 {font-size: 3.5rem; margin-bottom: 40px;}
+
+	.side_about {width: 45%; padding: 60px 0;}
+
+
+	.video-info h2 {font-size: 2.4rem;}
+
+
+	/* PAGES */
+	.ilustracao_rodape {max-height: 270px;}
+
+
+
+	/* NOTÍCIAS */
+	.noticias {width: calc(100% - 360px); padding:80px 35px 120px;}
+	/*.main-wrapper {max-width: 100%;}*/
+	.barra-lateral {width: 360px;}
+	.ultimas-noticias .noticia a.bg-image {width: 100%; padding: 0; margin-bottom: 10px;}
+	.ultimas-noticias .noticia .inner {width: 100%; padding: 0;}
+
+	.quer-ajudar {padding: 25px;}
+	.quer-ajudar h3, .quer-ajudar p {font-size: 2.4rem;}
+	.btn-doe {font-size: 2.2rem; padding: 20px;}
+
+
+
+	/* GRAFICOS */
+	.pa-grafico {padding-top:146px; }
+	.publico {width: 21%; margin-bottom: 50px;}
+
+
+
+}
+
+
+@media only screen and (max-width: 1152px ) {
+
+
+	html {font-size: 9.3px;}
+
+	p {line-height: 1.3;}
+
+	.wrapper {max-width: 100%; padding: 0 35px;}
+
+
+	/* HEADER */
+
+	#header .logo, #header.small .logo {left: 35px;}
+	#header.small #menuIcon {left: 120px;}
+	#header.small #menu ul {left: 123px;}
+
+
+
+	.social-media-fixo {width: auto; height: 20px; max-height: none; position: absolute; top: calc(50% - 10px); right: 213px; flex-flow: row; align-items: center; background: none; padding: 0 8px 0 0; border-right: 1px solid #491c18;}
+	.social-media-fixo a {font-size: 1.6rem; color: #491c18; margin: 0 8px;}
+
+
+
+	/* HOME */
+	.mais-noticias {right: 35px;}
+
+	#noticias-section .noticia {width: 32%;}
+	#noticias-section .noticia .inner {padding: 25px 20px 70px;}
+	#noticias-section .noticia h3 {line-height: 1.2;}
+
+
+
+
+
+
+	/* PAGES */
+	#hero .pageHeader {left: 35px;}
+	#corpo .pageHeader {left: 35px;}
+
+
+	.single-numeros h3 {left: 35px;}
+
+
+	/* GRÁFICOS */
+	.col-texto .col-wrapper {max-width: 100%; padding: 0 35px;}
+
+	.ni-grafico {padding: 166px 35px 0;}
+	.ni-grafico .col-wrapper {max-width: 100%;}
+
+	.valor-impacto {width: 42%;}
+	.valor-impacto-legenda {width: 56%;}
+
+
+	.pa-grafico {padding:86px 35px 50px; }
+	.pa-grafico .col-wrapper {max-width: 100%;}
+	.publico {width: 29%;}
+
+
+	.ta-grafico {padding: 50px 25px 50px 0;}
+
+	.legenda span {width: 30%;}
+
+
+	.nossos-numeros .col-texto {width: 43%;}
+	.nn-grafico {width: 57%;}
+
+
+	.mapa-texto {right: 40px;}
+
+
+
+	/* FOOTER */
+	#footer .logo svg {left: 35px;}
+	.social-media-footer {right: 35px;}
+
+	#footer .badge {right: 35px;}
+
+
+}
+
+
+@media only screen and (max-width: 1023px ) {
+
+
+
+	/* HOME */
+	#banners {padding-left: 0;}
+	.banners_graph {display: none;}
+
+	#noticias-section a.ultimas-noticias {padding: 20px 45px; margin-top: 35px;}
+	.mais-noticias {top: 61px;}
+
+
+	.video-info, .video-list {display: none;}
+
+	.video-list-large {position: static; left: 0; top: 0; width: 100%; background-color: #686548; margin-top: 35px; float: left; clear: left;}
+
+
+	/* NOTÍCIAS */
+	.noticias {width: 100%; padding: 80px 35px;}
+	.barra-lateral {width: 100%; padding: 0 35px; margin-bottom: 60px;}
+
+	.ultimas-noticias {padding: 30px 20px;}
+	.ultimas-noticias .noticia {width: 48%;}
+
+	.quer-ajudar {margin-top: 50px;}
+
+
+	.publicacoes {justify-content: space-around;}
+	.publicacao, .grid-item {width: 44%;}
+
+
+
+	.mapa-texto {width: calc(100% - 475px);}
+
+	.single-numeros h3 {width: 100%; max-width: 100%; left: 0; top: -50px; text-align: center;}
+
+}
+
+
+@media only screen and (max-width: 880px ) {
+
+
+	#noticias-section a.ultimas-noticias {font-size: 3rem;}
+
+	#noticias-section .noticia {width: 100%; margin-bottom: 35px;}
+
+
+	.ilustracao_rodape {max-height: 180px;}
+
+
+	.nosso-impacto .col-texto,
+	.publico-atendido .col-texto,
+	.tematicas-atuacao .col-texto,
+	.nossos-numeros .col-texto,
+	.ni-grafico,
+	.pa-grafico,
+	.nn-grafico,
+	.ta-grafico {width: 100%; padding: 50px 0;}
+
+	.pa-grafico {padding: 50px 20px;}
+
+	.ta-grafico h3 {left: 40px;}
+
+	.nn-grafico {padding: 0 !important;}
+
+
+	.projetos-paises .wrapper {padding: 0 10px;}
+	.mapa-wrapper {padding-bottom: 50px;}
+	.mapa-texto {width: 100%; position: static; float: left; clear: left; padding-bottom: 30px;}
+
+
+
+	.programa h2 {font-size: 2.3rem;}
+
+
+	.resultado {width: 48%;}
+
+
+
+}
+
+
+@media only screen and (max-width: 767px ) {
+
+
+
+	.wrapper {padding: 0 20px;}
+
+	/* HEADER */
+	#header {height: 70px;}
+	#header .logo {top: 5px; left: 20px;}
+	#header .logo svg {width: 140px;}
+
+	#menuIcon {top: 10px; left: 200px;}
+	#menu {height: calc(100% - 70px); top: 70px;}
+	#menu ul {left: 202px;}
+
+	.languageheader {top: 25px; right: 75px;}
+
+
+	#busca {height: 70px; top: 70px;}
+	#busca .searchForm {top: 22px;}
+
+	.btn-busca {top: 21px; right: 25px;}
+
+
+	.social-media-fixo {display: none;}
+
+
+	/* HOME */
+	#banners {padding-top: 70px;}
+	.about {width: 100%; padding: 35px;}
+	.side_about {width: 100%; padding: 0;}
+
+
+	#videos {padding: 35px;}
+	.orange-bg {width: 100%;}
+	.video-list-large .flexbox {justify-content: space-between;}
+	.video-list-large .videoThumb {width: 47%; margin:10px 0;}
+
+
+
+	/* INTERNAS */
+	#hero {height: 160px;}
+	#corpo .pageHeader {top: -86px;}
+	.page-busca {padding: 40px 0;}
+
+
+	#corpo.pdtop {padding-top: 40px;}
+	#corpo.pdbottom {padding-bottom: 40px;}
+
+
+	.item {width: 100%;}
+
+
+	.col-texto .col-wrapper {padding: 0 20px;}
+
+
+	.programa h2 {height: auto; line-height: 1.3; padding: 20px 55px 20px 40px;}
+	.prog_text {width:100%; margin-left: 0px; padding: 40px 40px 60px;}
+
+
+	/* NOTÍCIAS */
+	.noticias {padding:40px 35px;}
+
+	.publicacao, .grid-item {width: 100%;}
+
+	/* FOOTER */
+	#footer .logo svg {left: 20px;}
+	.social-media-footer {right: 20px;}
+}
+
+
+/* MENOR QUE iPad Mini */
+@media only screen and (max-width: 630px ) {
+
+
+	#menu ul, #header.small #menu ul {width: 100%; text-align: center; left: 0; top: 40px;}
+	#menu ul li {width: 100%;}
+
+	#menu ul li ul, #header.small #menu ul li ul {width: calc(100% - 50px); margin: 10px 0 10px 25px;}
+
+	.languageheader {display: none;}
+	.languagemenu {width: 100%; position: absolute; left: 0; bottom: 50px; text-align: center; display: block;}
+	.languagemenu a {font-size: 16px;}
+
+
+
+
+	/* HOME */
+
+	#banners .slick-dots {display: none !important;}
+	.mais-noticias {display: none;}
+
+	.about {padding: 35px;}
+
+	#videos {padding: 20px;}
+	.video-list-large .videoThumb {width: 100%; margin:10px 0 20px;}
+
+
+
+	/* GLOBAIS */
+	.doe-agora .doe-text {width: 100%; padding: 0; text-align: center; margin-bottom: 20px;}
+
+
+
+	/* INTERNAS */
+	.valor-impacto {width: 46%;}
+	.valor-impacto canvas {width: 190px !important;}
+	.valor-impacto-legenda {width: 54%; padding:0 0 0 10px;}
+	.valor-impacto-legenda .flexbox {justify-content: space-between;}
+
+	.valor-impacto-legenda h4 {width: calc(100% - 46px); padding: 0 10px 0 10px; word-break: break-all;}
+
+
+
+	.depoimento {margin: 0 40px 30px;}
+
+
+	.resultado {width: 100%;}
+
+	/* NOTÍCIAS */
+	.noticias {padding:40px 20px;}
+
+	.barra-lateral {padding: 0 20px;}
+	.ultimas-noticias .noticia {width: 100%;}
+	.inner-side {padding: 0 10px;}
+
+
+
+	.contato, .doar {padding: 36px 36px 70px;}
+
+	.form-row > label, .form-row.large-label > label {width: 100%; height: auto; line-height: 30px;}
+	.wpcf7-form-control-wrap, .form-row.large-label .wpcf7-form-control-wrap, .form-row .wpcf7-select, .form-row .wpcf7-date {width: 100%;}
+
+	.form-radio .wpcf7-list-item-label {line-height: 1.3;}
+
+
+
+	/* FOOTER */
+	#footer .logo svg {left: 50%; margin-left: -105px; top: 35px;}
+	.social-media-footer {right: 20px; bottom: 30px;}
+
+	#footer .badge {right: auto; top: auto; bottom: 30px; left: 20px;}
+
+
+}
+
+/* MENOR QUE iPHONE 6 */
+@media only screen and (max-width: 374px ) {
+
+	#noticias-section a.ultimas-noticias {padding: 20px;}
+
+	.valor-impacto {width: 42%;}
+	.valor-impacto canvas {width: 150px !important;}
+	.valor-impacto-legenda {width: 58%; padding:0 0 0 10px;}
+
+	.doar {padding: 36px 20px 70px}
+	.doar h2 {font-size: 2.1rem;}
+	.doar p {font-size: 1.6rem;}
+
+
+}
+
+/* iPHONE 4 */
+@media only screen and (max-width: 330px ) {
+
+	#menu ul {top: 20px;}
+	#menu ul li a {font-size: 1.8rem;}
+
+}

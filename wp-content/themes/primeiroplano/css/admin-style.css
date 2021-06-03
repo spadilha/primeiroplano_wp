@@ -1,0 +1,12 @@
+.acf-field .acf-label label {font-size: 14px; color: #491c18;}
+
+
+.projeto_pais .acf-accordion-content .acf-field label {color: #f17a53;}
+
+
+/* NOSSOS NÚMEROS */
+/* Gráfico */
+.grafico_texto iframe {min-height: 610px !important;}
+.mapa_texto iframe {min-height: 360px !important;}
+.auditoria_texto iframe {min-height: 150px !important; height: 150px !important}
+.areas_texto iframe {min-height: 550px !important;}
