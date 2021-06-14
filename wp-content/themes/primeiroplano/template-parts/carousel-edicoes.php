@@ -1,7 +1,4 @@
-
-
-</section>
-
+<?php global $thiseditionid, $lasteditionid; ?>
 
 
 <!-- EDIÇÕES ANTERIORES -->
@@ -15,6 +12,54 @@
 		<div class="row">
 
 		    <div class="edicoes-wrapper">
+
+
+		<?php
+
+			$issues = get_terms( 'edicao', array(
+				'order'		 => 'DESC',
+				'orderby'    => 'slug',
+				'hide_empty' => 0,
+				'exclude'	 => array($thiseditionid),
+			) );
+
+			foreach ($issues as $cat) {
+
+				$editionid = $cat->term_id;
+				$editioslug = $cat->slug;
+
+				$image = get_field('cartaz', 'edicao_' . $editionid);
+		    	$ano = $cat->name;
+
+		    	if($editionid == $lasteditionid){
+					$link = SITEHOME;
+				} else {
+					$link = get_term_link( $editioslug, 'edicao' );
+				}
+
+
+			?>
+
+			<div class="edicao">
+
+		        <?php if($link){ ?><a href="<?= $link ?>" title="Festival Primeiro Plano - <?= $ano ?>"><?php } ?>
+
+		            <?php if($image){ ?>
+		                <img src="<?= $image ?>" alt="">
+		            <?php } ?>
+
+		            <?php if($ano){ ?>
+		            	<h3><?= $ano ?></h3>
+		        	<?php } ?>
+
+		        <?php if($link){ ?></a><?php } ?>
+			</div>
+
+		<?php } ?>
+
+
+
+
 
 		<?php
 

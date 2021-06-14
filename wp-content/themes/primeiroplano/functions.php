@@ -143,5 +143,54 @@ function my_custom_fonts() {
 
 
 
+// AJUSTA REWRITE RULES PARA INCLUIR EDIÇÃO NOS POSTS E PAGES
+// add_filter('post_link', 'spa_post_link', 10, 3);
+// add_filter('post_type_link', 'spa_post_link', 10, 3);
+// function spa_post_link( $permalink, $post ) {
+
+//     $terms = wp_get_post_terms( $post->ID, 'edicao' );
+//     if ( ! empty( $terms ) && ! is_wp_error( $terms ) )
+//         $term = current( $terms )->slug;
+//     else
+//         $term = 'geral';
+
+//     $permalink = str_replace( '%edicao%', $term, $permalink );
+
+//     return $permalink;
+// }
+
+// add_filter('page_link', 'spa_page_link', 10, 3);
+// function spa_page_link( $permalink, $post ) {
+
+//     return $permalink;
+// }
+
+// // add_filter('rewrite_rules_array','remove_bare_folder_rule');
+// // function remove_bare_folder_rule( $rules ){
+// //    unset($rules['([^/]+)/?$']);
+// //    return $rules;
+// // }
+
+
+
+// add_action( 'init', 'custom_rewrite_rules', 1, 0 );
+// function custom_rewrite_rules(){
+//     global $wp_rewrite;
+
+//     $wp_rewrite->extra_permastructs['page']['struct'] = '/%pagename%';
+//     $wp_rewrite->extra_permastructs['page']['with_front'] = 1;
+//     $wp_rewrite->extra_permastructs['page']['ep_mask'] = 0;
+//     $wp_rewrite->extra_permastructs['page']['paged'] = 1;
+//     $wp_rewrite->extra_permastructs['page']['feed'] = 1;
+//     $wp_rewrite->extra_permastructs['page']['forcomments'] = 0;
+//     $wp_rewrite->extra_permastructs['page']['walk_dirs'] = 1;
+//     $wp_rewrite->extra_permastructs['page']['endpoints'] = 1;
+
+//     // print_r($wp_rewrite);
+// }
+
+
+
+
 
 ?>

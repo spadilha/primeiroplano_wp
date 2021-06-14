@@ -12,12 +12,32 @@ jQuery(function($){
 
             var self = this;
 
+            WebApp.banners();
             WebApp.navigations();
 
             if($('.fitvidz').length){
                 $('.fitvidz').fitVids();
             }
 
+        },
+
+        banners: function(){
+
+            $('.banners-container').on('init', function(slick){
+                $('#banners').addClass('active');
+            });
+
+            $('.banners-container').slick({
+                autoplay: true,
+                autoplaySpeed: 6000,
+                pauseOnHover: true,
+                dots: true,
+                arrows: false,
+                speed: 700,
+                slidesToShow: 1,
+                touchThreshold: 20,
+                slidesToScroll: 1,
+            });
         },
 
         navigations: function(){

@@ -51,7 +51,7 @@ textarea {overflow: auto; line-height: 17px;}
 
 strong {font-weight: 800;}
 
-p {line-height: 1.3;}
+p {line-height: 1.4;}
 
 a {text-decoration:none; color:#101010;
     -webkit-transition:all 0.2s linear 0s;
@@ -167,20 +167,24 @@ h4,h5,h6 {font-weight: 800;}
 #topbar ul li:last-child:after {display: none;}
 
 #topbar ul li a {font-size: 1.2rem; font-weight: 700; color: #ffffff; text-transform: uppercase;}
-#topbar ul a:hover, #topbar ul li.current-item a {color: #ef89a9;}
+#topbar ul a:hover, #topbar ul li.current-menu-item a {color: #ef89a9;}
+
+#topbar .nome-edicao {font-size: 1.2rem; font-weight: 700; color: #ffffff; text-transform: uppercase; position: absolute; right: 0; top: 0;}
+#topbar .nome-edicao a {color: #fff;}
+#topbar .nome-edicao a:hover {color: #ef89a9;}
 
 
+.menuIcon, #menuIcon {display: none;}
 
-.menuIcon, #menuIcon, #menuIcon {display: none;}
-#menu {position: absolute; left: 320px; top: 41px;}
+#menu {position: absolute; right: 80px; top: 41px;}
 
 #menu ul {list-style: none; position: relative; float: left;}
 #menu ul li {float: left; margin-right: 32px; position: relative;}
 #menu ul li:last-child {margin-right: 0;}
 
 #menu ul li a {font-size: 2.4rem; font-weight: 900; color: #101010; text-transform: uppercase;}
-#menu ul a:hover, #menu ul li.current-menu-item a {color: #26aa67;}
-#menu ul li:first-child.current-menu-item a {color: #101010;}
+#menu ul a:hover, #menu ul li.current-item a {color: #26aa67;}
+#menu ul li:first-child.current-item a {color: #101010;}
 
 
 /* SUBMENU */
@@ -295,7 +299,8 @@ h4,h5,h6 {font-weight: 800;}
 #noticias-section h2 a:hover {color: #e8521c;}
 
 
-#noticias-section .noticia {width: 30%; background-color: #f5f2ef; position: relative; overflow: hidden;}
+#noticias-section .noticia {width: 30%; background-color: #f5f2ef; position: relative; overflow: hidden; margin-bottom: 50px;}
+#noticias-section .noticia.fake {height: 0; background-color: transparent;}
 #noticias-section .noticia a.bg-image {background-color: #e8521c; width: 100%; float: left; clear: left;}
 
 
@@ -424,60 +429,24 @@ h4,h5,h6 {font-weight: 800;}
 /* =====================================================================================
     CORPO
 ===================================================================================== */
-#corpo {position: relative;}
-#corpo .img-full {float: left; clear: left;}
-#corpo.pdtop {padding-top: 80px;}
-#corpo.pdbottom {padding-bottom: 80px;}
+#page-header {padding: 60px 0;}
+#page-header h1 {font-size: 3.55rem; font-weight: 900; line-height: 1.2; margin-bottom:40px;}
 
-#corpo .pageHeader {font-size: 3.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #fff; position: absolute; top: -126px;}
-#corpo .pageHeader a {color: #fff;}
-#corpo .pageHeader a:hover {color: #e1e1e1;}
+#corpo {padding: 60px 0;}
+.single-post .wrapper {max-width: 900px;}
 
+.single-post h1 {font-size: 3.55rem; font-weight: 900; line-height: 1.2; margin-bottom:40px;}
+.single-post h2 {font-size: 2.55rem; font-weight: 900; line-height: 1.2; margin:40px 0 15px;}
+.single-post h3 {font-size: 2.0rem; font-weight: 700; line-height: 1.2; margin:50px 0 15px;}
+.single-post h4 {font-size: 1.8rem; font-weight: 700; line-height: 1.2; margin:50px 0 15px;}
 
-
-
-
-.pagesection {width: 100%; float: left; clear: left; padding: 85px 0;}
-/*.pagesection:first-child {padding-top: 0;}*/
-.pagesection:last-child {padding-bottom:160px;}
-
-
-.pagesection h1 {font-size: 2.5rem; font-weight: 600; line-height: 1.2; margin-bottom: 30px;}
-
-.pagesection h1.page-title {font-size: 2.55rem; font-weight: 600; line-height: 1.2; color: #491c18; text-transform: uppercase; margin-bottom: 40px; position: relative;}
-.pagesection h1.page-title:after {content: ""; width: 42px; height: 1px; background-color: #686648; position: absolute; left: 0; bottom: -20px; }
-
-
-.pagesection h2 {font-size: 2.55rem; font-weight: 300; line-height: 1.2; color: #686648; margin-bottom: 15px;}
-.pagesection h2.section-title {font-weight: 600; color: #491c18; text-transform: uppercase; margin-bottom: 56px; position: relative;}
-.pagesection h2.section-title:after {content: ""; width: 42px; height: 1px; background-color: #686648; position: absolute; left: 0; bottom: -28px; }
-
-
-.pagesection p:last-child {margin-bottom: 0;}
-.pagesection:last-child .single-text p:last-child:after {content: ""; width: 42px; height: 1px; background-color: #686648; position: absolute; left: 0; bottom: -28px; }
-
-
-.quebraLinha {width: 100%; height: 1px; float: left; clear: left; position: relative; margin-top:-24px;}
-.quebraLinha:after {content: ""; width: 42px; height: 1px; background-color: #686648; position: absolute; left: 0; top: 0px; }
+.single-post p {margin-bottom:20px; line-height: 1.4;}
+.single-post p a, .single-post li a {font-weight: 600; text-decoration: underline;}
 
 
 
-/* TEXTO */
-.single-text {background-position:right bottom; background-repeat: no-repeat; padding: 60px 0;}
-
-
-.single-text h1 {font-size: 3.55rem; font-weight: 900; line-height: 1.2; margin-bottom:40px;}
-.single-text h2 {font-size: 2.55rem; font-weight: 900; line-height: 1.2; margin:40px 0 15px;}
-.single-text h3 {font-size: 2.0rem; font-weight: 700; line-height: 1.2; margin:50px 0 15px;}
-.single-text h4 {font-size: 1.8rem; font-weight: 700; line-height: 1.2; margin:50px 0 15px;}
-
-.single-text p {margin-bottom:20px;}
-.single-text p a, .single-text li a {font-weight: 600; text-decoration: underline;}
-
-
-
-.single-text ul {list-style: disc inside; margin-bottom: 30px;}
-.single-text li {margin-bottom:10px; line-height: 1.2; margin-bottom: 20px;}
+.single-post ul {list-style: disc inside; margin-bottom: 30px;}
+.single-post li {margin-bottom:10px; line-height: 1.2; margin-bottom: 20px;}
 
 
 
@@ -771,11 +740,11 @@ iframe[id^="oauth2relay"] { position: fixed !important; }
 
 .aligncenter, .aligncenter img {max-width: 100% !important; height: auto; margin:15px auto;}
 
-.alignright {float:right; margin:15px 0 15px 25px; clear: right;}
-.alignleft {float:left; margin:15px 25px 15px 0; clear: left;}
+.alignright {float:right; margin:0 0 25px 25px; clear: right; max-width: 340px; height: auto;}
+.alignleft {float:left; margin:0 25px 25px 0; clear: left; max-width: 340px; height: auto;}
 
 .wp-caption img {width: 100%; height: auto;}
-.single-text p.wp-caption-text {font-size: 1.4rem; text-align: right; margin-top: 6px; padding-left: 100px;}
+#corpo p.wp-caption-text {font-size: 1.4rem; text-align: right; margin-top: 6px; padding-left: 100px;}
 
 .invisible {visibility:hidden;}
 
