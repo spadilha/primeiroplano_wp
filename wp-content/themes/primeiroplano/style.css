@@ -144,21 +144,10 @@ h4,h5,h6 {font-weight: 800;}
 
 
 
-
-/* ======================================================================================================
-    HEADER
-====================================================================================================== */
-#header {width: 100%; height: 118px; float: left; clear: left;}
-
-#header .logo {position: absolute; left: 0px; top: 38px;}
-
-
-
 /* =====================================================================================
-    MENU
+    TOPBAR
 ===================================================================================== */
-/* Topbar */
-#topbar {height: 32px; line-height: 32px; background-color: #101010;}
+#topbar {height: 32px; line-height: 32px; background-color: #101010; display: none;}
 #topbar img {float: left; margin-right: 25px; margin-top: 2px;}
 #topbar ul {list-style: none; position: relative; float: left;}
 #topbar ul li {height: 32px; line-height: 32px; float: left; margin-right: 22px; position: relative; position: relative;}
@@ -174,12 +163,28 @@ h4,h5,h6 {font-weight: 800;}
 #topbar .nome-edicao a:hover {color: #ef89a9;}
 
 
-.menuIcon, #menuIcon {display: none;}
 
-#menu {position: absolute; right: 80px; top: 41px;}
+/* ======================================================================================================
+    HEADER
+====================================================================================================== */
+#header {width: 100%; height: 113px; background-color: #fff; float: left; clear: left;}
+#fakeheader {display: none;}
+
+#header .logo {position: absolute; left: 0px; top: 40px;}
+
+
+
+/* =====================================================================================
+    MENU
+===================================================================================== */
+#menu-mobile, .menuIcon, #menuIcon {display: none;}
+
+#menu {position: absolute; right: 80px; top: 40px;}
 
 #menu ul {list-style: none; position: relative; float: left;}
 #menu ul li {float: left; margin-right: 32px; position: relative;}
+#menu ul li.submenu-item {display: none;}
+
 #menu ul li:last-child {margin-right: 0;}
 
 #menu ul li a {font-size: 2.4rem; font-weight: 900; color: #101010; text-transform: uppercase;}
@@ -257,7 +262,7 @@ h4,h5,h6 {font-weight: 800;}
 /* =====================================================================================
     BANNERS
 ===================================================================================== */
-#banners {width:100%; position:relative; float:left; clear:left; opacity: 0; overflow: hidden;
+#banners {width:100%; position:relative; z-index: 20; float:left; clear:left; opacity: 0; overflow: hidden;
     -webkit-transition:opacity 1s ease;
     -moz-transition:opacity 1s ease;
     -o-transition:opacity 1s ease;
@@ -300,7 +305,7 @@ h4,h5,h6 {font-weight: 800;}
 
 
 #noticias-section .noticia {width: 30%; background-color: #f5f2ef; position: relative; overflow: hidden; margin-bottom: 50px;}
-#noticias-section .noticia.fake {height: 0; background-color: transparent;}
+#noticias-section .noticia.fake {height: 0; background-color: transparent; margin: 0;}
 #noticias-section .noticia a.bg-image {background-color: #e8521c; width: 100%; float: left; clear: left;}
 
 
@@ -433,20 +438,29 @@ h4,h5,h6 {font-weight: 800;}
 #page-header h1 {font-size: 3.55rem; font-weight: 900; line-height: 1.2; margin-bottom:40px;}
 
 #corpo {padding: 60px 0;}
-.single-post .wrapper {max-width: 900px;}
+#corpo h1 {margin-bottom: 40px;}
 
-.single-post h1 {font-size: 3.55rem; font-weight: 900; line-height: 1.2; margin-bottom:40px;}
-.single-post h2 {font-size: 2.55rem; font-weight: 900; line-height: 1.2; margin:40px 0 15px;}
-.single-post h3 {font-size: 2.0rem; font-weight: 700; line-height: 1.2; margin:50px 0 15px;}
-.single-post h4 {font-size: 1.8rem; font-weight: 700; line-height: 1.2; margin:50px 0 15px;}
+.single-content .wrapper {max-width: 800px;}
 
-.single-post p {margin-bottom:20px; line-height: 1.4;}
-.single-post p a, .single-post li a {font-weight: 600; text-decoration: underline;}
+.single-content .thumb-image {width: 100%; height: auto; margin-top:50px;}
+
+.single-content h1 {font-size: 3.55rem; font-weight: 900; line-height: 1.2; margin-bottom:40px;}
+.single-content h2 {font-size: 2.55rem; font-weight: 900; line-height: 1.2; margin:40px 0 15px;}
+.single-content h3 {font-size: 2.0rem; font-weight: 700; line-height: 1.2; margin:50px 0 15px;}
+.single-content h4 {font-size: 1.8rem; font-weight: 700; line-height: 1.2; margin:50px 0 15px;}
+
+.single-content p {margin-bottom:20px; line-height: 1.4;}
+.single-content p a, .single-content li a {font-weight: 700;}
 
 
 
-.single-post ul {list-style: disc inside; margin-bottom: 30px;}
-.single-post li {margin-bottom:10px; line-height: 1.2; margin-bottom: 20px;}
+.single-content ul {list-style: disc inside; margin-bottom: 30px;}
+.single-content li {margin-bottom:10px; line-height: 1.2; margin-bottom: 20px;}
+
+
+
+#programacao h2 {margin-top: 90px;}
+#programacao h3 {font-size: 2.5rem; margin-top: 60px;}
 
 
 
@@ -461,7 +475,9 @@ h4,h5,h6 {font-weight: 800;}
 
 
 
-
+/* LIST */
+#list h2 {font-size: 3.5rem; margin-top: 70px;}
+#list h2 svg {margin-right: 20px;}
 
 
 
@@ -538,6 +554,10 @@ h4,h5,h6 {font-weight: 800;}
 .page-busca .page-title {font-size: 2.55rem; font-weight: 600; line-height: 1.2; color: #491c18; text-transform: uppercase; margin-bottom: 56px; position: relative;}
 .page-busca .page-title:after {content: ""; width: 42px; height: 1px; background-color: #686648; position: absolute; left: 0; bottom: -28px; }
 
+
+
+
+.section-title {width: 100%;font-size: 3.0rem; color: #26aa67; margin: 100px 0 20px 0; float: left; clear: left;}
 
 
 

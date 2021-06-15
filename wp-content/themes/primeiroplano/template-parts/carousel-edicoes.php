@@ -120,15 +120,24 @@ jQuery(function($){
             {
                 breakpoint: 1180,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 4,
                 }
             },
             {
                 breakpoint: 768,
                 settings: {
+                    slidesToShow: 3,
+                    arrows: false,
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
                     slidesToShow: 2,
+                    arrows: false,
                 }
             }
+
         ]
     });
 

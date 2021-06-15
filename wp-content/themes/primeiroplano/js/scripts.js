@@ -44,8 +44,14 @@ jQuery(function($){
 
             $('.hamburger').on('click touch', function(){
                 $(this).toggleClass('is-active');
-                $('#menu').toggleClass('opened');
+                $('#menu-mobile').toggleClass('opened');
             });
+
+            $('#icoLuzes').on('click touch', function(){
+                $('#menu-topbar').toggleClass('opened');
+            });
+
+
 
 
             $('.btn-search').on('click touch', function(){
@@ -57,8 +63,12 @@ jQuery(function($){
 
                 // console.log(event.target);
 
-                if (!$(event.target).closest('#menu, .menuIcon').length) {
-                    $('.menu, .menu-item-has-children ul').hide();
+                if (!$(event.target).closest('#menu-mobile, #menuIcon').length) {
+                    $('#menu-mobile').removeClass('opened');
+                }
+
+                if (!$(event.target).closest('#menu-topbar, #icoLuzes').length) {
+                    $('#menu-topbar').removeClass('opened');
                 }
 
                 if (!$(event.target).closest('.btn-search, #search').length) {

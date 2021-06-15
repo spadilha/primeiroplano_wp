@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 
-<main id="corpo" class="row single-post">
+<main id="corpo" class="row single-content">
 	<div class="wrapper">
 		<h1><?php the_title(); ?></h1>
 

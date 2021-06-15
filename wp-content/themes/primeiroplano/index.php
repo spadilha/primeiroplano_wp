@@ -41,6 +41,8 @@ if ($noticias->have_posts()) : ?>
 
 			<?php endwhile; ?>
 
+			<div class="noticia fake"></div>
+
 			</div>
 		</div>
 

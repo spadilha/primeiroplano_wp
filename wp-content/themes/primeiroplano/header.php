@@ -47,9 +47,56 @@
 <body <?php body_class(); ?>>
 
 
-<header id="topbar">
+
+<nav id="menu-mobile" class="row">
+
+	<ul>
+
+<?php
+$menumobile = new WP_Query(array('post_type' => 'page', 'posts_per_page' => -1, 'orderby' => 'menu_order', 'order' => 'ASC',
+
+	'meta_query' => array(
+		'relation' => 'AND',
+		array(
+			'key' => 'menu',
+			'value'    => array('principal','submenu'),
+		),
+	),
+
+
+
+	'tax_query' => array(
+		array(
+			'taxonomy' => 'edicao',
+			'field'    => 'slug',
+			'terms'    => $editioslug,
+		),
+	),
+));
+
+if ($menumobile->have_posts()) : while ($menumobile->have_posts()) : $menumobile->the_post();
+
+	$termo = get_field('menu_termo');
+
+	if($termo == ''){
+		$termo = get_the_title();
+	}
+?>
+
+	<li <?php if($currentPageId == $post->ID) echo ' class="current-item"'; ?>><a href="<?php the_permalink() ?>"><?= $termo ?></a></li>
+
+<?php endwhile; endif; ?>
+
+	</ul>
+
+	<?php get_template_part( 'template-parts/nav-socialmedia' ); ?>
+
+</nav>
+
+
+<header id="topbar" class="row">
 	<div class="wrapper">
-		<img src="<?= THEMEPATH ?>/images/ico_primeiroplano.png" alt="">
+		<img id="icoLuzes" src="<?= THEMEPATH ?>/images/ico_primeiroplano.png" alt="">
 
 		<?php wp_nav_menu( array( 'theme_location' => 'Topbar', 'container' => '', 'container_id' => '', 'container_class' => '', 'menu_class' => '') );	?>
 
@@ -58,7 +105,7 @@
 	</div>
 </header>
 
-<header id="header">
+<header id="header" class="row">
 
 	<div class="wrapper">
 
@@ -89,7 +136,6 @@
 
 		<?php endwhile; endif; ?>
 
-
 		<?php wp_reset_query(); ?>
 
 			</ul>
@@ -101,11 +147,12 @@
 	</div>
 
 </header>
+<div id="fakeheader" class="row"></div>
 <div id="search">
 	<div class="searchForm">
 		<h3>O que você procura?</h3>
 		<form role="search" method="get" action="<?php echo home_url( '/' ); ?>">
-			<input type="text" placeholder="Digite aqui sua busca…" name="s" id="s" class="searchField" />
+			<input type="text" placeholder="Pesquisar…" name="s" id="s" class="searchField" />
 			<input type="submit" id="searchsubmit" class="searchSubmit" value="" />
 		</form>
 	</div>
@@ -191,33 +238,7 @@ if ($submenu->have_posts()) : ?>
 
 			</ul>
 
-
-				<div class="social-media flexbox">
-
-			<?php
-
-				global $facebook, $twitter, $instagram;
-
-				$facebook = get_field('facebook', 'option');
-				$twitter = get_field('twitter', 'option');
-				$instagram = get_field('instagram', 'option');
-			?>
-
-			<?php if($facebook){ ?>
-				<a target="_blank" class="flexbox sm_facebook" href="<?php echo $facebook; ?>"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-			<?php } ?>
-
-			<?php if($twitter){ ?>
-				<a target="_blank" class="flexbox sm_twitter" href="<?php echo $twitter; ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-			<?php } ?>
-
-			<?php if($instagram){ ?>
-				<a target="_blank" class="flexbox sm_instagram" href="<?php echo $instagram; ?>"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-			<?php } ?>
-
-		</div>
-
-
+			<?php get_template_part( 'template-parts/nav-socialmedia' ); ?>
 
 		</div>
 	</nav>

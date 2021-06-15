@@ -1,0 +1,36 @@
+<?php
+
+namespace ACA\YoastSeo\Column\Post;
+
+use AC;
+use ACA\YoastSeo\Editing;
+use ACA\YoastSeo\Export;
+use ACA\YoastSeo\Filtering;
+use ACP;
+
+class Title extends AC\Column
+	implements ACP\Editing\Editable, ACP\Export\Exportable, ACP\Search\Searchable {
+
+	public function __construct() {
+		$this->set_type( 'wpseo-title' )
+		     ->set_group( 'yoast-seo' )
+		     ->set_original( true );
+	}
+
+	public function get_meta_key() {
+		return '_yoast_wpseo_title';
+	}
+
+	public function editing() {
+		return new Editing\Post\Title( $this );
+	}
+
+	public function export() {
+		return new Export\Post\Title( $this );
+	}
+
+	public function search() {
+		return new ACP\Search\Comparison\Meta\Text( $this->get_meta_key(), 'post' );
+	}
+
+}
