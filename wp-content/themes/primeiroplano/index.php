@@ -51,6 +51,9 @@ if ($noticias->have_posts()) : ?>
 <?php endif; ?>
 
 
+<?php get_template_part( 'template-parts/section-midias' ); ?>
+
+
 <?php get_template_part( 'template-parts/carousel-edicoes' ); ?>
 
 <?php get_footer(); ?>

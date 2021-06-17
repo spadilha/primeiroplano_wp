@@ -345,6 +345,61 @@ h4,h5,h6 {font-weight: 800;}
 
 
 
+/* ====================================================
+    SECTION MIDIAS
+==================================================== */
+
+#midias {background-color: #f5f2ef; padding:40px 0 50px;}
+#midias h2 {font-size: 3.8rem; font-weight: 900; color: #010101; text-transform: uppercase; margin-bottom: 20px;}
+#midias h2 a:hover {color: #e8521c;}
+
+
+#midias .wrapper {padding: 0;}
+
+
+#boxFotos {width:calc(100% - 660px); height: 346px; float:left; position: relative;}
+
+#galWrapper {width: 100%; height:100%;; float: left; clear: left;}
+#boxFotos .slick-list, #boxFotos .slick-track {height: 100%;}
+#boxFotos .slick-slide {text-align: center; height: 100%; overflow: hidden; position: relative;}
+#boxFotos .slick-slide img {display: inline-block; height: 100%; width: auto;}
+
+#boxFotos .slide {width: 100%; height: 100%; position: relative;}
+
+
+#boxFotos .slick-arrow {width: 40px; height: 40px; background: url('_images/sprite.png') 0px 0px no-repeat; position: absolute; z-index: 10; top:50%; margin-top: -20px; text-indent: -9999px; cursor: pointer; opacity: 0.5; display: block;}
+#boxFotos .slick-arrow:hover {opacity: 1;}
+
+#boxFotos .slick-prev {left: 20px; background-position: 0px -49px;}
+#boxFotos .slick-next {right: 20px; background-position: -41px -49px;}
+
+
+#boxFotos .fotoInfo {position: absolute; bottom: 0; left: 0; right: 0; color: #fff; background-color: rgba(0,0,0,0.7); padding: 10px; text-align: left;}
+#boxFotos .fotoInfo h3 {font-family: benton-sans, sans-serif; font-size: 16px; font-weight: 500;}
+#boxFotos .fotoInfo p {font-family: benton-sans, sans-serif; font-weight: 400; line-height: 1.2; margin-top: 5px;}
+#boxFotos .fotoInfo p a {color: #fff; text-decoration: none; text-decoration: underline;}
+#boxFotos .fotoInfo p a:hover {color: #ccc;}
+
+
+
+#boxFotos .slick-dots {width:100%; height: 2px; text-align:center; position:absolute; left:0; bottom:-22px; z-index:99;}
+#boxFotos .slick-dots li {list-style:none; display:inline-block; margin:0 10px;}
+#boxFotos .slick-dots li button { display:block; width:10px; height:10px; background-color:rgba(0,0,0,0.4); cursor:pointer; text-indent:-9999px; border:0; border-radius: 50%;
+
+    -webkit-transition:background 0.2s linear;
+    -moz-transition:background 0.2s linear;
+    -o-transition:background 0.2s linear;
+    transition:background 0.2s linear;
+}
+#boxFotos .slick-dots li button:hover {background-color:rgba(0,0,0,1);}
+#boxFotos .slick-dots li.slick-active button, #slide-list li.slick-active button:hover {background-color:rgba(0,0,0,1);}
+
+
+#boxVideo {width: 615px; float: right;}
+
+
+
+
 
 
 
