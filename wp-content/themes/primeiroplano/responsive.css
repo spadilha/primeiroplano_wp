@@ -11,8 +11,8 @@
 	#topbar {position: fixed; top: 0; left: 0; z-index: 99;}
 	#topbar .nome-edicao {right: 30px;}
 
-    #header {position: fixed; height: 80px; top: 32px; top: 0; left: 0; z-index: 99;}
-    #fakeheader {display: block; height: 112px; height: 80px; z-index: 1;}
+    #header {position: fixed; height: 80px; top: 32px; left: 0; z-index: 99;}
+    #fakeheader {display: block; height: 112px; z-index: 1;}
 
     #header .logo {top: 17px; left: 30px;}
 
@@ -113,7 +113,7 @@
 	/* MENU MOBILE */
 
 
-	#menu-mobile {width: 100%; height:calc(100% - 90px); position: fixed; left: 0; top: 112px; top: 80px; background-color:#000; z-index: 999; display: none;}
+	#menu-mobile {width: 100%; height:calc(100% - 90px); position: fixed; left: 0; top: 112px; background-color:#000; z-index: 999; display: none;}
 	#menu-mobile.opened {display: block;}
 
 	#menu-mobile ul {margin: 30px 48px 0 0; float: right;}

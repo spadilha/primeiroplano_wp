@@ -147,7 +147,7 @@ h4,h5,h6 {font-weight: 800;}
 /* =====================================================================================
     TOPBAR
 ===================================================================================== */
-#topbar {height: 32px; line-height: 32px; background-color: #101010; display: none;}
+#topbar {height: 32px; line-height: 32px; background-color: #101010;}
 #topbar img {float: left; margin-right: 25px; margin-top: 2px;}
 #topbar ul {list-style: none; position: relative; float: left;}
 #topbar ul li {height: 32px; line-height: 32px; float: left; margin-right: 22px; position: relative; position: relative;}
@@ -522,14 +522,14 @@ h4,h5,h6 {font-weight: 800;}
 /* ====================================
     PAGINATION
 ==================================== */
-#pagenav {padding-top: 60px;}
+#pagenav {padding-top: 25px;}
 .wp-pagenavi {width: 100%; float: left; clear: left; text-align: center;}
 .pages {font-size: 1.3rem;}
-.wp-pagenavi a, .wp-pagenavi span {width: 26px; height: 26px; line-height: 26px; font-size: 1.3rem; color: #fff; background-color: #686648; text-decoration: none; margin: 0 5px 10px; display: inline-block;}
+.wp-pagenavi a, .wp-pagenavi span {width: 30px; height: 30px; line-height: 30px; font-size: 1.6rem; color: #fff; background-color: #000; text-decoration: none; margin: 0 5px 10px; display: inline-block;}
 .wp-pagenavi a:hover {background-color: #fdce16;}
-.wp-pagenavi span.current {background-color: #c3d389;}
+.wp-pagenavi span.current {background-color: #26aa67;}
 
-.search-results .wp-pagenavi a:hover, .search-results .wp-pagenavi span.current {background-color: #f9c19e;}
+.search-results .wp-pagenavi a:hover, .search-results .wp-pagenavi span.current {background-color: #26aa67;}
 .wp-pagenavi span.current {font-weight: bold;}
 
 

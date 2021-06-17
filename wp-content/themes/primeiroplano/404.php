@@ -1,13 +1,15 @@
 <?php get_header(); ?>
 
 
-<main id="corpo" class="row">
+<main id="corpo" class="row single-content">
+
 	<div class="wrapper">
-		<h1 class="pageHeader">Erro 404</h1>
 
-		<h2><?php echo __("Página não encontrada", "spatheme"); ?></h2>
+		<h1>Erro 404</h1>
 
-		<p><?php echo __("A página solicitada não foi encontrada. Utilize o menu ou faça uma busca para navegar pelo site.", "spatheme"); ?></p>
+		<h2>Página não encontrada</h2>
+
+		<p>A página solicitada não foi encontrada. Utilize o menu ou faça uma busca para navegar pelo site.</p>
 	</div>
 </main>
 

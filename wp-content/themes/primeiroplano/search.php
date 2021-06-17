@@ -1,25 +1,14 @@
 <?php get_header(); ?>
 
-<?php
-	// Pega o termo da busca
-	$search_term = get_search_query();
-?>
+<?php $search_term = get_search_query(); ?>
 
-<?php get_header(); ?>
-
-<div id="hero" class="row">
-	<div class="wrapper">
-
-		<h1 class="pageHeader"><?= __('Busca por ', 'spatheme') . '"' .$search_term . '"' ?></h1>
-
-	</div>
-</div>
-
-<main id="corpo" class="row page-busca">
+<main id="corpo" class="row">
 
 	<div class="wrapper">
 
-	    <?php
+		<h1>Busca por <?= $search_term ?></h1>
+
+	<?php
 		$num = $wp_query->found_posts;
 
 		if ($num == 1){ ?>
@@ -35,28 +24,26 @@
 	<?php }	?>
 
 
-		<div class="row flexbox publicacoes">
+		<div id="noticias-section" class="row flexbox">
 
-		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-			<?php $title = get_the_title(); ?>
+				<article class="noticia">
 
-			<?php
-				$post_type = get_post_type_object( get_post_type($post) );
+					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="bg-image">
+					<?php if( has_post_thumbnail() ){ the_post_thumbnail('thumbnail'); } else { echo '<img src="'. get_template_directory_uri() . '/images/thumb_default.png" alt="">'; } ?></a>
+					<div class="inner">
+						<h3><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
 
-				if($post_type->label == 'Posts') $post_type->label = __('Notícias', 'spatheme');
-			?>
+						<p><?php the_excerpt(); ?></p>
 
-			<a href="<?php the_permalink(); ?>" title="<?= $title ?>" class="grid-item resultado">
-				<?php if( has_post_thumbnail() ){ the_post_thumbnail('thumbnail'); } else { echo '<img src="'. get_template_directory_uri() . '/images/thumb_default.jpg" alt="">'; } ?>
-				<h2 class="listHeader"><?= $title ?></h2>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="leiaMais">Leia Mais</a>
+					</div>
+				</article>
 
-				<span class="grid-note"><?= $post_type->label ?></span>
-			</a>
+			<?php endwhile; endif; ?>
 
-		<?php endwhile; endif; ?>
-
-			<div class="resultado grid-escondido"></div>
+			<article class="noticia fake"></article>
 
 		</div>
 
@@ -65,20 +52,10 @@
 		</div>
 
 	</div>
-
 </main>
-
-<img src="<?= THEMEPATH ?>/images/ilustracao_publicacoes.png" alt="" class="ilustracao_full">
-
-<?php include(ROOTPATH . '/includes/section-doeagora.php'); ?>
-
-<?php include(ROOTPATH . '/includes/section-newsletter.php'); ?>
 
 <?php get_footer(); ?>
 
 </body>
 
 </html><!-- This is the end. Beautiful friend.  -->
-
-
-
