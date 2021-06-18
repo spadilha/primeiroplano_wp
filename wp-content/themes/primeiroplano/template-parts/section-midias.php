@@ -1,10 +1,12 @@
+<?php global $editioslug; ?>
+
 <section id="midias" class="row">
 	<div class="wrapper">
 
 		<div id="boxFotos">
 
 
-			<h2>FOTOS</h2>
+			<h2><a href="<?= SITEHOME . '/' . $editioslug ?>/fotos/">FOTOS</a></h2>
 
 			<?php $galeria = get_field('midias_fotos', 'options'); if($galeria){ ?>
 
@@ -13,14 +15,7 @@
 				<?php foreach ($galeria as $image) { ?>
 
 					<div class="slide">
-						<img class="slideImage" src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['caption']; ?>" data-width="<?php echo $image['width']; ?>" data-height="<?php echo $image['height']; ?>" />
-
-						<?php if($image['caption']){ ?>
-							<div class="fotoInfo">
-								<p><?php echo $image['caption']; ?></p>
-							</div>
-						<?php } ?>
-
+						<a href="<?= SITEHOME . '/' . $editioslug ?>/fotos/"><img class="slideImage" src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['caption']; ?>" /></a>
 					</div>
 
 				<?php } ?>
