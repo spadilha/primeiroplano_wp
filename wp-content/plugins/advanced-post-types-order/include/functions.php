@@ -76,7 +76,7 @@
                 if(!is_admin())
                     return;
                     
-                if(isset($_GET['delete_sort']) || isset($_GET['new-item']) || isset($_POST['apto_sort_settings_form_submit']))
+                if(isset($_GET['delete_sort']) || isset($_GET['nsort']) || isset($_POST['apto_sort_settings_form_submit']))
                     ob_start();   
             }
           

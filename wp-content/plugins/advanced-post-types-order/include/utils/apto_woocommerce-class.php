@@ -38,6 +38,9 @@
                                         {
                                             add_action( 'woocommerce_after_single_product_summary', array($this, 'custom_wc_upsell_display'), 15 );
                                         }
+                                        
+                                    add_filter ( 'woocommerce_upsells_orderby', array ( $this, 'woocommerce_upsells_orderby' ) );
+                                    add_filter ( 'woocommerce_upsells_order',   array ( $this, 'woocommerce_upsells_order' ) );
 
                                 }
                         }
@@ -140,7 +143,21 @@
                                                                                     ));
                     
                 }
+                
             
+            function woocommerce_upsells_orderby( $orderby )
+                {
+                    $orderby    =   'none';
+                        
+                    return $orderby;   
+                }
+            
+            function woocommerce_upsells_order( $order )
+                {
+                    $order    =   'none';
+                        
+                    return $order;   
+                }
                        
         }
         

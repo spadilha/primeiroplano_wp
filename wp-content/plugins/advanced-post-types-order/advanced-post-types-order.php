@@ -5,7 +5,7 @@ Plugin URI: http://www.nsp-code.com
 Description: Order Post Types Objects using a Drag and Drop Sortable javascript capability
 Author: Nsp Code
 Author URI: http://www.nsp-code.com 
-Version: 4.3.9.1
+Version: 4.4.5
 */
 
 
@@ -13,9 +13,9 @@ Version: 4.3.9.1
     define('APTO_URL_PROTOCOL',     plugins_url('', __FILE__));
     define('APTO_URL',              str_replace(array('https:', 'http:'), "", APTO_URL_PROTOCOL));
 
-    define('APTO_VERSION',          '4.3.9.1');
+    define('APTO_VERSION',          '4.4.5');
     define('APTO_DB_VERSION',       '1.1');
-    define('APTO_APP_API_URL',      'https://www.nsp-code.com/index.php'); 
+    define('APTO_APP_API_URL',      'http://api.nsp-code.com/index.php'); 
     
     define('APTO_PRODUCT_ID',       'APTO');
     define('APTO_INSTANCE',         preg_replace('/:[0-9]+/', '', str_replace(array ("https://" , "http://"), "", get_site_option('siteurl'))));

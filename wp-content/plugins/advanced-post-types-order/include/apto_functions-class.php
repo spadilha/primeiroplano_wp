@@ -16,7 +16,7 @@
             * put your comment there...
             * 
             */
-            static function  get_post_types($ignore = array())
+            static function  get_post_types( $ignore = array() )
                 {
                     $all_post_types =   get_post_types();
                     
@@ -1373,7 +1373,7 @@
                     
                     //apply sicky
                     if(isset($sort_view_settings['_sticky_data']) && is_array($sort_view_settings['_sticky_data']) && count($sort_view_settings['_sticky_data']) > 0)
-                        $order_list     =   $this->order_list_apply_sticky_data($order_list, $sort_view_settings['_sticky_data']);
+                        $order_list     =   $this->order_list_apply_sticky_data( $order_list, $sort_view_settings['_sticky_data'], $sort_view_id );
 
                     $new_orderBy    =   $this->query_get_new_orderBy($orderBy, $query, $sort_view_id, $order_list);
                     
@@ -1413,7 +1413,7 @@
             * @param mixed $order_list
             * @param mixed $sticky_data
             */
-            function order_list_apply_sticky_data( $order_list, $sticky_data )
+            function order_list_apply_sticky_data( $order_list, $sticky_data, $sort_view_id )
                 {
                     $updated_order_list     =   array();
                     
@@ -1440,7 +1440,7 @@
                         
                     ksort($updated_order_list);
                     
-                    $updated_order_list =   apply_filters( 'apto/order_list/apply_sticky_data', $updated_order_list, $order_list, $sticky_data );
+                    $updated_order_list =   apply_filters( 'apto/order_list/apply_sticky_data', $updated_order_list, $order_list, $sticky_data, $sort_view_id );
                     
                     return $updated_order_list;
                 }   
@@ -1718,10 +1718,10 @@
                                 }
                                   
                             //add author if set
-                            if(isset($query->query['author']) && $query->query['author'] != '')
+                            if( isset($query->query['author'] ) && $query->query['author'] != '' )
                                 {
                                     $authors    =   (array)$query->query['author'];
-                                    $mysql_query .= " AND ". $wpdb->posts .".post_author IN ('"  .   implode("', '", $query->query['author']) .   "')";        
+                                    $mysql_query .= " AND ". $wpdb->posts .".post_author IN ('"  .   implode("', '", $authors ) .   "')";        
                                 }
                                 
                             $post_types =   $this->query_get_post_types($query, TRUE);
@@ -2565,7 +2565,7 @@
             * @param mixed $previous
             * @param mixed $sort
             */
-            function get_adjacent_post_sort($previous = TRUE, $sort)
+            function get_adjacent_post_sort($previous = TRUE, $sort = '')
                 {
                     global $post, $wpdb;
                     

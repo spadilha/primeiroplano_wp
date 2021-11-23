@@ -1,13 +1,13 @@
 Advanced Post Types Order (Single Site License)
 End User License Agreement
-Copyright, Nsp-Code (http://www.nsp-code.com/premium-plugins/wordpress-plugins/advanced-post-types-order/)
+Copyright, Nsp-Code (https://www.nsp-code.com/premium-plugins/wordpress-plugins/advanced-post-types-order/)
 All rights reserved.
 
 By using the software, you agree to be bound by the terms of this license. If you have any questions 
 about the terms below, please contact nsp-code.com for clarification.
 
 
-1.) You must have paid http://www.nsp-code.com to use the software.
+1.) You must have paid https://www.nsp-code.com to use the software.
 
 2.) The copyright holder retains all intellectual property rights to the software.
 

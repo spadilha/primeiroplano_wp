@@ -78,7 +78,8 @@
                     
                     $args   =   array(
                                         '_adminsort'     =>  array('yes'),
-                                        '_view_type'    =>  array('multiple')
+                                        '_view_type'    =>  array('multiple'),
+                                        '_pto_interface_sort'   =>  array('yes')
                                         );
                                   
                     $matched_sort_id    =   $this->get_sort_match($screen->post_type, $args);
@@ -91,7 +92,11 @@
                         return;
                     
                     //check the option of this sort if allow interface sorting
-                    $sort_settings  =   $this->APTO->functions->get_sort_settings($matched_sort_id); 
+                    $sort_settings  =   $this->APTO->functions->get_sort_settings($matched_sort_id);
+                    
+                    //check on capability
+                    if ( ! current_user_can( $sort_settings['_capability'] ))
+                        return; 
                         
                     //check if post type is sortable
                     if($sort_settings['_pto_interface_sort']    !=  'yes')

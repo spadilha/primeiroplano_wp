@@ -457,5 +457,19 @@
             return $do_ignore_order;
                
         }
+        
+        
+    add_filter( 'apto/get_post_types' , '_apto_get_post_types');
+    function  _apto_get_post_types ( $all_post_types )
+        {
+            
+            if ( is_plugin_active( 'woocommerce-product-addons/woocommerce-product-addons.php' ) )
+                {
+                    if (isset ( $all_post_types['global_product_addon'] ) )
+                        unset ( $all_post_types['global_product_addon'] );
+                }
+            
+            return $all_post_types;   
+        }
 
 ?>

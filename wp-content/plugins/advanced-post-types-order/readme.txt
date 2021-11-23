@@ -17,11 +17,11 @@ It allow to reorder the posts for any custom post types you defined, including t
 3. Enter the License key which you received through e-mail / purchase interface. If you use the plugin under a MultiSite environment the license key can be enter at Network Admin > Settings > Post Types Order
 4. Once activated you should check with Settings > Post Types Order 
 5. Use Re-Order link which appear under each post type menu to make your sort. Unless a valid key is provided no re-order interface are show.
-6. For advanced usage check API at http://www.nsp-code.com/advanced-post-types-order-api/
+6. For advanced usage check API at https://www.nsp-code.com/advanced-post-types-order-api/
 
 Make sure you deactivate the Free plug-in Post Types Order version if it's installed 
 
-Additional Documentation and Usage can be found at http://www.nsp-code.com/advanced-post-types-order-documentation-and-usage/
+Additional Documentation and Usage can be found at https://www.nsp-code.com/advanced-post-types-order-documentation-and-usage/
 
 == Upgrade Notice ==
 Updates are available through the Dashboard > Updates or Plugins area. The updates are done automatically similar to WordPress repository plugins.

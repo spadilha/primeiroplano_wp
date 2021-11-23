@@ -1,22 +1,78 @@
 <?php   
         
-               
+        if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+    
+        /**
+        * V2.2       
+        */       
         class APTO_licence
         {
          
             function __construct()
                 {
-                    $this->licence_deactivation_check();   
+                    $last_checked = (int)get_site_option( 'apto_last_checked' );
+                    if( time() < ( $last_checked + ( ( 86400 * 3 )  + rand ( 1, 43200) ) ))
+                        {
+                            return;
+                        }
+                    
+                    update_site_option( 'apto_last_checked', time() );
+                    
+                    $this->licence_deactivation_check();    
                 }
                 
-            function __destruct()
+                
+            /**
+            * Retrieve licence details
+            * 
+            */
+            public function get_licence_data()
                 {
+                    $licence_data = get_site_option('apto_license');
                     
+                    $default =   array(
+                                            'kye'               =>  '',
+                                            'last_check'        =>  '',
+                                            'licence_status'    =>  '',
+                                            'licence_expire'    =>  ''
+                                            );    
+                    $licence_data           =   wp_parse_args( $licence_data, $default );
+                    
+                    return $licence_data;
+                }
+            
+                
+            /**
+            * Reset license data
+            *     
+            * @param mixed $licence_data
+            */
+            public function reset_licence_data( $licence_data )
+                {
+                    if  ( ! is_array( $licence_data ) ) 
+                        $licence_data   =   array();
+                        
+                    $licence_data['kye']                =   '';
+                    $licence_data['last_check']         =   time();
+                    $licence_data['licence_status']     =   '';
+                    $licence_data['licence_expire']     =   '';
+                    
+                    return $licence_data;
+                }
+            
+            /**
+            * Set licence data
+            *     
+            * @param mixed $licence_data
+            */
+            public function update_licence_data( $licence_data )
+                {
+                    update_site_option('apto_license', $licence_data);   
                 }
                 
             function licence_key_verify()
                 {
-                    $license_data = get_site_option('apto_license');
+                    $license_data = $this->get_licence_data();
                     if(!is_array($license_data))
                         $license_data   =   array();
                     
@@ -59,65 +115,81 @@
                     
                     if(!$this->licence_key_verify() ||  $this->is_local_instance()  === TRUE)
                         return;
-                    
-                    $license_data = get_site_option('apto_license');
-                    if(!is_array($license_data))
-                        $license_data   =   array();
-                    
-                    if(isset($license_data['last_check']))
-                        {
-                            if(time() < ($license_data['last_check'] + ( 86400 * 3 ) ))
-                                {
-                                    return;
-                                }
-                        }
-                        
+                          
                     if ( !  $this->create_lock( 'APTO__API_status-check', 50 ) )
                         return;
                     
-                    global $wp_version;
+                    if ( empty ( get_site_option( 'apto_last_checked' ) ) )
+                        return;
+                    
                     
                     //update already the last_check to avoid multiple calls
-                    $license_data['last_check']   = time();    
-                    update_site_option('apto_license', $license_data);
+                    $license_data   =   $this->get_licence_data();
+                    $license_key    =   $license_data['kye'];
                     
-                    $license_key =  isset($license_data['kye']) ?       $license_data['kye']    :   '';
+                    if ( empty ( $license_key ) )
+                        {
+                            $license_data['last_check']   = time();
+                            $this->update_licence_data( $license_data );
+                            $this->release_lock( 'APTO__API_status-check' );
+                            return;
+                        }
+                    
+                    global $wp_version;
+                    
                     $args = array(
                                         'woo_sl_action'         => 'status-check',
                                         'product_unique_id'     => APTO_PRODUCT_ID,
                                         'licence_key'           => $license_key,
                                         'domain'                => APTO_INSTANCE,
+                                        'code_version'          => APTO_VERSION,
                                     );
                     $request_uri    = APTO_APP_API_URL . '?' . http_build_query( $args , '', '&');
                     $data           = wp_remote_get( $request_uri,  array(
-                                                                            'timeout'     => 20,
+                                                                            'timeout'     => 5,
                                                                             'user-agent'  => 'WordPress/' . $wp_version . '; APTO/' . APTO_VERSION .'; ' . get_bloginfo( 'url' ),
                                                                             ) );
                     
                     if(is_wp_error( $data ) || $data['response']['code'] != 200)
-                        return;
+                        {
+                            $license_data['last_check']   = time();
+                            $this->update_licence_data( $license_data );
+                            $this->release_lock( 'APTO__API_status-check' );
+                            return;
+                        }
                         
                     $response_block = json_decode($data['body']);
 
                     if(!is_array($response_block) || count($response_block) < 1)
-                        return;    
+                        {
+                            $license_data['last_check']   = time();
+                            $this->update_licence_data( $license_data );
+                            $this->release_lock( 'APTO__API_status-check' );
+                            return;
+                        }   
                         
                     $response_block = $response_block[count($response_block) - 1];
                     if (is_object($response_block))
                         {
-                            if($response_block->status_code == 'e312' || $response_block->status_code == 's203' ||  $response_block->status_code == 'e204')
+                            if ( in_array ( $response_block->status_code, array ( 'e312', 's203', 'e204', 'e002', 'e003' ) ) )
                                 {
                                     $license_data['kye']          = '';
+                                }
+                                else
+                                {
+                                    $license_data['licence_status']         = isset( $response_block->licence_status ) ?    $response_block->licence_status :   ''  ;
+                                    $license_data['licence_expire']         = isset( $response_block->licence_expire ) ?    $response_block->licence_expire :   ''  ;   
+                                    $license_data['_sl_new_version']        = isset( $response_block->_sl_new_version ) ?   $response_block->_sl_new_version :   ''  ;
                                 }
                                 
                             if($response_block->status == 'error')
                                 {
-                                    $license_data['kye']          = '';
-                                }       
+                                    $license_data   =   $this->reset_licence_data( $license_data );
+                                }        
                         }
                           
-                    update_site_option('apto_license', $license_data);
-                    
+                    $licence_data['last_check']   = time();    
+                    $this->update_licence_data( $license_data );
                     $this->release_lock( 'APTO__API_status-check' );
                     
                 }

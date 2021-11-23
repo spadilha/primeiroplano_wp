@@ -117,6 +117,14 @@
                                             'comparison'            =>  array('IS', 'IS NOT')
                                             ));
                                             
+                    $this->add_rule(array(
+                                            'id'                    =>  'mobile',
+                                            'title'                 =>  'Mobile',
+                                            'admin_html'            =>  array($this, 'conditional_rule_mobile_admin_html'),
+                                            'query_check_callback'  =>  array($this, 'conditional_rule_mobile_query_check'),
+                                            'comparison'            =>  array('IS', 'IS NOT')
+                                            ));
+                                            
                     do_action('apto_conditionals_add', $this);
                     
                 }
@@ -628,6 +636,23 @@
                         
                     if($comparison == 'IS NOT')
                         $condition_status   =   ($condition_status) ?  FALSE : TRUE;
+                           
+                    return $condition_status;   
+                }
+                
+                
+            function conditional_rule_mobile_admin_html( $options )
+                {
+                    //no output is required  
+                }
+
+            function conditional_rule_mobile_query_check( $comparison, $value, $query )
+                {
+                    
+                    $condition_status = wp_is_mobile();
+
+                    if($comparison == 'IS NOT')
+                        $condition_status   =   ( $condition_status ) ?  FALSE : TRUE;
                            
                     return $condition_status;   
                 } 

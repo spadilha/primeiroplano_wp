@@ -469,7 +469,7 @@
                                 $value = 'Sort #' . $sort_id;
                             
                             
-                            //never allow pagination for hierarhical post types
+                            //No pagination for hierarhical post types to avoid issues
                             if($option == '_pagination' && $this->get_is_hierarhical_by_settings($sort_id)   === TRUE)
                                 {
                                     $value  =   'no';
@@ -693,6 +693,21 @@
                     
                     else if($sort_view_type == 'multiple')
                         {
+                            
+                            //For new sorts, avoid listing all items, if too many objects, by turning on pagination if not already
+                            if ( $new_sort === TRUE )
+                                {
+                                    $pagination =   get_post_meta( $sort_id, '_pagination', TRUE );
+                                    
+                                    $count_objects      =   0;                                   
+                                    $total_objects    =   wp_count_posts( $rules['post_type'][0] );
+                                    foreach ( $total_objects    as  $total_object )
+                                        $count_objects  +=  intval( $total_object );
+                                    
+                                    if ( $pagination == 'no' && $count_objects    >   1000 )
+                                        update_post_meta ( $sort_id, '_pagination', 'yes' );
+                                }
+                            
                             //check if default sort view already exists
                             $attr = array(
                                             '_view_selection'       =>  'archive',
@@ -2963,7 +2978,7 @@
                                     if($translated_objects  === FALSE)
                                         {
                                             //add the error
-                                            $_JSON_response['errors'][] =   __( "A syncronization could not be completed", 'apto' ) . ' ' . __( "for", 'apto' ) . ' ' . strtoupper($wpml_language['code']) . ' ' . __( "language", 'apto' ). ' ' . __( "as it contain a different number of objects.", 'apto' );
+                                            $_JSON_response['errors'][] =   __( "A synchronization could not be completed", 'apto' ) . ' ' . __( "for", 'apto' ) . ' ' . strtoupper($wpml_language['code']) . ' ' . __( "language", 'apto' ). ' ' . __( "as it contains a different number of objects.", 'apto' );
                                             continue;   
                                         }
                                         
@@ -3034,7 +3049,7 @@
                                     if(count($found_posts)  !=  count($data_list))
                                         {
                                             //add the error
-                                            $_JSON_response['errors'][] =   __( "A syncronization could not be completed", 'apto' ) . ' ' . __( "for", 'apto' ) . ' ' . strtoupper($wpml_language['code']) . ' ' . __( "language", 'apto' ) . ' ' . __( "as it contain a different number of objects.", 'apto' );
+                                            $_JSON_response['errors'][] =   __( "A synchronization could not be completed", 'apto' ) . ' ' . __( "for", 'apto' ) . ' ' . strtoupper($wpml_language['code']) . ' ' . __( "language", 'apto' ) . ' ' . __( "as it contains a different number of objects.", 'apto' );
                                             continue;
                                         }
                                     
@@ -3114,7 +3129,7 @@
                                     if($translated_objects  === FALSE)
                                         {
                                             //add the error
-                                            $_JSON_response['errors'][] =   __( "A syncronization could not be completed", 'apto' ) . ' ' . __( "for", 'apto' ) . ' ' . strtoupper($_language) . ' ' . __( "language", 'apto' ). ' ' . __( "as it contain a different number of objects.", 'apto' );
+                                            $_JSON_response['errors'][] =   __( "A synchronization could not be completed", 'apto' ) . ' ' . __( "for", 'apto' ) . ' ' . strtoupper($_language) . ' ' . __( "language", 'apto' ). ' ' . __( "as it contains a different number of objects.", 'apto' );
                                             continue;   
                                         }
                                         
@@ -3182,7 +3197,7 @@
                                     if(count($found_posts)  !=  count($data_list))
                                         {
                                             //add the error
-                                            $_JSON_response['errors'][] =   __( "A syncronization could not be completed", 'apto' ) . ' ' . __( "for", 'apto' ) . ' ' . strtoupper($_language) . ' ' . __( "language", 'apto' ) . ' ' . __( "as it contain a different number of objects.", 'apto' );
+                                            $_JSON_response['errors'][] =   __( "A synchronization could not be completed", 'apto' ) . ' ' . __( "for", 'apto' ) . ' ' . strtoupper($_language) . ' ' . __( "language", 'apto' ) . ' ' . __( "as it contains a different number of objects.", 'apto' );
                                             continue;
                                         }
                                     

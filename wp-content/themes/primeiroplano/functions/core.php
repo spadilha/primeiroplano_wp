@@ -46,8 +46,8 @@ function spades_scripts_and_styles() {
     wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap', array(), '', 'all' );
     wp_register_style( 'fontawesome-css', get_stylesheet_directory_uri() . '/fonts/font-awesome.min.css', array(), '', 'all' );
     wp_register_style( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.css', array(), '', 'all' );
-    wp_register_style( 'spades-css', get_stylesheet_directory_uri() . '/style.css?v=21.06.02', array(), '', 'all' );
-    wp_register_style( 'responsive-css', get_stylesheet_directory_uri() . '/responsive.css?v=21.06.02', array(), '', 'all' );
+    wp_register_style( 'spades-css', get_stylesheet_directory_uri() . '/style.css?v=21.07.02', array(), '', 'all' );
+    wp_register_style( 'responsive-css', get_stylesheet_directory_uri() . '/responsive.css?v=21.07.02', array(), '', 'all' );
 
 
     // enqueue styles
@@ -61,7 +61,7 @@ function spades_scripts_and_styles() {
     // register scripts
     wp_register_script( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.min.js', array( 'jquery' ), '', true );
     wp_register_script( 'fitvids', get_stylesheet_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ), '', true );
-    wp_register_script( 'spades-js', get_stylesheet_directory_uri() . '/js/scripts.js?v=21.06.02', array( 'jquery' ), '', true );
+    wp_register_script( 'spades-js', get_stylesheet_directory_uri() . '/js/scripts.js?v=21.07.02', array( 'jquery' ), '', true );
 
 
     wp_enqueue_script( 'jquery' );

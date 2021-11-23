@@ -39,7 +39,7 @@ class APTO_interface
                 $this->menu_location        =   $this->interface_helper->get_current_menu_location();
                 $this->menu_tabs            =   $this->admin_functions->get_tabs($this->menu_location);
                 
-                $this->new_item_action      =   isset($_GET['new-item']) ?  TRUE : FALSE;
+                $this->new_item_action      =   isset($_GET['nsort']) ?  TRUE : FALSE;
                 
                 $this->sortID               =   $this->get_current_sort_id();
                 if ( $this->sort_id_validate($this->sortID)  === FALSE )
@@ -281,10 +281,10 @@ class APTO_interface
                                 if(current_user_can($admin_settings_view_capability))
                                     {
                                         ?>
-                                            <a class="new-item nav-tab<?php if($this->sortID == '') { echo ' nav-tab-active';} ?>" href="<?php 
+                                            <a class="nsort nav-tab<?php if($this->sortID == '') { echo ' nav-tab-active';} ?>" href="<?php 
                                                 
                                                 $link_argv  =   array(
-                                                                        'new-item' => 'true'
+                                                                        'nsort' => 'true'
                                                                         );
                                                 $link_argv['page'] =   'apto_' . $this->interface_helper->get_current_menu_location_slug();
                                                 
@@ -312,7 +312,7 @@ class APTO_interface
                                         
                                         jQuery( "h2#apto-nav-tab-wrapper" ).sortable({
                                               items: "a.nav-tab",
-                                              cancel: 'a.new-item',
+                                              cancel: 'a.nsort',
                                               update: function( event, ui ) {
                                                   
                                                   var order = jQuery(this).sortable('toArray', {attribute: 'data-sort-id'});

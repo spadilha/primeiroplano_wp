@@ -11,11 +11,10 @@ function myformatTinyMCE($settings) {
     $settings['block_formats'] = 'Paragraph=p;Heading 1=h1;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;';
 
     $custom_colours = '
-        "491c18", "Marrom",
-        "f17a53", "Laranja",
-        "e1e1e1", "Cinza",
-        "686648", "Musgo",
-        "c3d389", "Limão"
+        "E7521C", "Laranja",
+        "ef89a9", "Rosa",
+        "26aa67", "Verde",
+        "fdce16", "Amarelo",
     ';
 
     // build colour grid default+custom colors

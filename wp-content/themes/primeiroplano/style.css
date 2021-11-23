@@ -507,7 +507,7 @@ h4,h5,h6 {font-weight: 800;}
 .single-content p {margin-bottom:20px; line-height: 1.4;}
 .single-content p a, .single-content li a {font-weight: 700;}
 
-
+.single-content p a:hover {color: #fdce16 !important;}
 
 .single-content ul {list-style: disc inside; margin-bottom: 30px;}
 .single-content li {margin-bottom:10px; line-height: 1.2; margin-bottom: 20px;}
