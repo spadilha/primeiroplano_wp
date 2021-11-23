@@ -8,24 +8,8 @@ use ReflectionException;
 
 class YoastSeo extends AC\Plugin {
 
-	/**
-	 * @var string
-	 */
-	protected $file;
-
-	/**
-	 * @param string $file Location of the plugin main file
-	 */
 	public function __construct( $file ) {
-		$this->file = $file;
-	}
-
-	protected function get_file() {
-		return $this->file;
-	}
-
-	protected function get_version_key() {
-		return 'aca_yoast_seo';
+		parent::__construct( $file, 'aca_yoast_seo' );
 	}
 
 	/**

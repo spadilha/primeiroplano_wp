@@ -22,7 +22,10 @@ class Title extends AC\Column
 	}
 
 	public function editing() {
-		return new Editing\Post\Title( $this );
+		return new ACP\Editing\Service\Basic(
+			( new ACP\Editing\View\Text() )->set_placeholder( __( 'Enter your SEO Title', 'codepress-admin-columns' ) ),
+			new ACP\Editing\Storage\Post\Meta( $this->get_meta_key() )
+		);
 	}
 
 	public function export() {

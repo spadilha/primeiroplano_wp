@@ -1,0 +1,274 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Advanced Taxonomy Terms Order\n"
+"POT-Creation-Date: 2018-11-26 18:07+0200\n"
+"PO-Revision-Date: 2018-11-26 18:07+0200\n"
+"Last-Translator: NspCode <contact@nsp-code.com>\n"
+"Language-Team: Nsp Code <electronice_delphi@yahoo.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: include/class.atto.admin.php:86 include/class.atto.interface.php:164
+msgid "Taxonomy Order"
+msgstr ""
+
+#: include/class.atto.admin.php:132
+msgid "Advanced Taxonomy Terms Order plugin is inactive, please enter your"
+msgstr ""
+
+#: include/class.atto.admin.php:132 include/class.atto.options.php:360
+#: include/class.atto.options.php:396
+msgid "Licence Key"
+msgstr ""
+
+#: include/class.atto.interface.php:105
+#, php-format
+msgid "Order type for %s"
+msgstr ""
+
+#: include/class.atto.interface.php:105
+#, php-format
+msgid "switched to %s"
+msgstr ""
+
+#: include/class.atto.interface.php:118
+msgid "Order updated"
+msgstr ""
+
+#: include/class.atto.interface.php:170
+msgid ""
+"This plugin cannot work without javascript, because it uses drag and drop "
+"and AJAX."
+msgstr ""
+
+#: include/class.atto.interface.php:192
+#, php-format
+msgid "%s Taxonomies"
+msgstr ""
+
+#: include/class.atto.interface.php:196 include/class.atto.interface.php:201
+msgid "Taxonomy Title"
+msgstr ""
+
+#: include/class.atto.interface.php:196 include/class.atto.interface.php:201
+msgid "Total Terms"
+msgstr ""
+
+#: include/class.atto.interface.php:274
+msgid "Automatic Order"
+msgstr ""
+
+#: include/class.atto.interface.php:275
+msgid "Manual Order"
+msgstr ""
+
+#: include/class.atto.interface.php:286
+msgid "Order By"
+msgstr ""
+
+#: include/class.atto.interface.php:295
+msgid "Default"
+msgstr ""
+
+#: include/class.atto.interface.php:298
+msgid "Creation Time / ID"
+msgstr ""
+
+#: include/class.atto.interface.php:301
+msgid "Name"
+msgstr ""
+
+#: include/class.atto.interface.php:304
+msgid "Count"
+msgstr ""
+
+#: include/class.atto.interface.php:307
+msgid "Slug"
+msgstr ""
+
+#: include/class.atto.interface.php:310
+msgid "Random"
+msgstr ""
+
+#: include/class.atto.interface.php:317
+msgid "Order"
+msgstr ""
+
+#: include/class.atto.interface.php:327
+msgid "Descending"
+msgstr ""
+
+#: include/class.atto.interface.php:330
+msgid "Ascending"
+msgstr ""
+
+#: include/class.atto.interface.php:339 include/class.atto.interface.php:371
+#: include/class.atto.interface.php:398
+msgid "Update"
+msgstr ""
+
+#: include/class.atto.interface.php:448
+msgid "Items Order Updated"
+msgstr ""
+
+#: include/class.atto.options.php:55
+msgid "Subscriber"
+msgstr ""
+
+#: include/class.atto.options.php:56
+msgid "Contributor"
+msgstr ""
+
+#: include/class.atto.options.php:57
+msgid "Author"
+msgstr ""
+
+#: include/class.atto.options.php:58
+msgid "Editor"
+msgstr ""
+
+#: include/class.atto.options.php:59
+msgid "Administrator"
+msgstr ""
+
+#: include/class.atto.options.php:87
+msgid "General Settings"
+msgstr ""
+
+#: include/class.atto.options.php:95
+msgid "Minimum Level to use this plugin"
+msgstr ""
+
+#: include/class.atto.options.php:114
+msgid "Auto Sort"
+msgstr ""
+
+#: include/class.atto.options.php:118 include/class.atto.options.php:131
+#: include/class.atto.options.php:144
+msgid "OFF"
+msgstr ""
+
+#: include/class.atto.options.php:119 include/class.atto.options.php:132
+#: include/class.atto.options.php:145
+msgid "ON"
+msgstr ""
+
+#: include/class.atto.options.php:120
+msgid ""
+"If checked, the plug-in automatically update the WordPress queries to use "
+"the new sort (<b>No code update is necessarily</b>)"
+msgstr ""
+
+#: include/class.atto.options.php:120
+msgid "Additional details about this setting can be found at"
+msgstr ""
+
+#: include/class.atto.options.php:121
+msgid ""
+"If ON selected, the plug-in automatically update the WordPress queries to "
+"use the new sort (<b>No code update is necessary</b>)"
+msgstr ""
+
+#: include/class.atto.options.php:121
+#, php-format
+msgid ""
+"Additional details about this setting can be found at <a href=\"%s\" target="
+"\"_blank\">Autosort Details</a>"
+msgstr ""
+
+#: include/class.atto.options.php:127
+msgid "Admin Sort"
+msgstr ""
+
+#: include/class.atto.options.php:134
+msgid "Update order of terms within the admin interface per customised sort"
+msgstr ""
+
+#: include/class.atto.options.php:140
+msgid "Default Interface Sort"
+msgstr ""
+
+#: include/class.atto.options.php:147
+msgid ""
+"Allow drag & drop functionality for sorting within default WordPress "
+"taxonomy interface."
+msgstr ""
+
+#: include/class.atto.options.php:157
+msgid "Save Settings"
+msgstr ""
+
+#: include/class.atto.options.php:189
+msgid "Settings Saved"
+msgstr ""
+
+#: include/class.atto.options.php:221 include/class.atto.options.php:306
+#, php-format
+msgid "There was a problem connecting to %s"
+msgstr ""
+
+#: include/class.atto.options.php:262
+#, php-format
+msgid "There was a problem deactivating the licence: %s"
+msgstr ""
+
+#: include/class.atto.options.php:271 include/class.atto.options.php:345
+#, php-format
+msgid "There was a problem with the data block received from %s"
+msgstr ""
+
+#: include/class.atto.options.php:288
+msgid "Licence Key can't be empty"
+msgstr ""
+
+#: include/class.atto.options.php:337
+#, php-format
+msgid "There was a problem activating the licence: %s"
+msgstr ""
+
+#: include/class.atto.options.php:357 include/class.atto.options.php:393
+msgid "Advanced Taxonomy Terms Order License"
+msgstr ""
+
+#: include/class.atto.options.php:372
+#, php-format
+msgid ""
+"Enter the Licence Key you received when you purchased this product. If you "
+"lost the key, you can always retrieve it from <a href=\"%s\" target=\"_blank"
+"\">My Account</a>."
+msgstr ""
+
+#: include/class.atto.options.php:377
+msgid "Save"
+msgstr ""
+
+#: include/class.atto.options.php:418
+msgid "Deactivate"
+msgstr ""
+
+#: include/class.atto.options.php:421
+#, php-format
+msgid ""
+"You can generate more keys from <a href=\"%s\" target=\"_blank\">My Account</"
+"a>"
+msgstr ""
+
+#: include/class.atto.plugin-updater.php:67
+msgid "An error occurred when trying to identify the plugin."
+msgstr ""
+
+#: include/class.atto.plugin-updater.php:67
+#: include/class.atto.plugin-updater.php:73
+msgid "Try again"
+msgstr ""
+
+#: include/class.atto.plugin-updater.php:73
+msgid "An Unexpected HTTP Error occurred during the API request."
+msgstr ""

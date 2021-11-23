@@ -2,10 +2,10 @@
 
 namespace ACA\YoastSeo\Editing\Taxonomy;
 
-use ACA\YoastSeo\Column;
+use AC\Request;
 use ACP\Editing;
 
-class SeoMeta extends Editing\Model {
+class SeoMeta implements Editing\Service {
 
 	/**
 	 * @var string
@@ -17,21 +17,36 @@ class SeoMeta extends Editing\Model {
 	 */
 	private $taxonomy;
 
-	public function __construct( Column\TermMeta $column, $taxonomy, $meta_key ) {
-		parent::__construct( $column );
+	/**
+	 * @var Editing\View
+	 */
+	private $view;
 
+	public function __construct( $taxonomy, $meta_key, Editing\View $view = null ) {
 		$this->meta_key = $meta_key;
 		$this->taxonomy = $taxonomy;
+		$this->view = $view ?: new Editing\View\Text();
 	}
 
-	public function get_view_settings() {
-		return [
-			'type' => 'text',
-		];
+	public function get_view( $context ) {
+		return $this->view;
 	}
 
-	public function save( $id, $value ) {
+	public function get_value( $id ) {
 		$meta = get_option( 'wpseo_taxonomy_meta' );
+
+		if ( ! is_array( $meta ) ) {
+			return false;
+		}
+
+		return isset( $meta[ $this->taxonomy ][ $id ][ $this->meta_key ] )
+			? $meta[ $this->taxonomy ][ $id ][ $this->meta_key ]
+			: false;
+	}
+
+	public function update( Request $request ) {
+		$meta = get_option( 'wpseo_taxonomy_meta' );
+		$id = $request->get( 'id' );
 
 		if ( ! isset( $meta[ $this->taxonomy ] ) ) {
 			$meta[ $this->taxonomy ] = [];
@@ -41,7 +56,7 @@ class SeoMeta extends Editing\Model {
 			$meta[ $this->taxonomy ][ $id ] = [];
 		}
 
-		$meta[ $this->taxonomy ][ $id ][ $this->meta_key ] = $value;
+		$meta[ $this->taxonomy ][ $id ][ $this->meta_key ] = $request->get( 'value' );
 
 		update_option( 'wpseo_taxonomy_meta', $meta );
 	}

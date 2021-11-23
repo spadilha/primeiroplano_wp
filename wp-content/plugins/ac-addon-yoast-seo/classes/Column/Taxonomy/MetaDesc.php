@@ -20,7 +20,7 @@ class MetaDesc extends Column\TermMeta
 	}
 
 	public function editing() {
-		return new Editing\Taxonomy\SeoMetaDescription( $this, $this->get_taxonomy(), $this->get_meta_key() );
+		return new Editing\Taxonomy\SeoMeta( $this->get_taxonomy(), $this->get_meta_key(), new ACP\Editing\View\TextArea() );
 	}
 
 }

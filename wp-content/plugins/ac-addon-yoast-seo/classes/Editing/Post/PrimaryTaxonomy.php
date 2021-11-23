@@ -4,50 +4,49 @@ namespace ACA\YoastSeo\Editing\Post;
 
 use AC;
 use ACP\Editing;
+use ACP\Editing\Storage;
 use ACP\Helper\Select;
 
-class PrimaryTaxonomy extends Editing\Model\Meta
-	implements Editing\PaginatedOptions {
+class PrimaryTaxonomy extends Editing\Service\BasicStorage implements Editing\PaginatedOptions {
 
 	/**
-	 * @param int $id
-	 *
-	 * @return array|false
+	 * @var string
 	 */
-	public function get_edit_value( $id ) {
-		$term = $this->column->get_raw_value( $id );
+	private $taxonomy;
+
+	public function __construct( $taxonomy ) {
+		parent::__construct( new Storage\Post\Meta( '_yoast_wpseo_primary_' . $taxonomy ) );
+
+		$this->taxonomy = $taxonomy;
+	}
+
+	public function get_value( $id ) {
+		$term = parent::get_value( $id );
 
 		if ( ! $term ) {
-			$terms = wp_get_post_terms( $id, $this->column->get_taxonomy() );
+			$terms = wp_get_post_terms( $id, $this->taxonomy );
 
-			if ( empty( $terms ) || is_wp_error( $terms ) ) {
-				return null;
-			}
-
-			return false;
+			return empty( $terms ) || is_wp_error( $terms )
+				? null
+				: false;
 		}
 
-		$term = get_term( $term, $this->column->get_taxonomy() );
+		$term = get_term( $term, $this->taxonomy );
 
 		return [
 			$term->term_id => $term->name,
 		];
 	}
 
-	public function get_view_settings() {
-		return [
-			self::VIEW_TYPE          => 'select2_dropdown',
-			'multiple'               => false,
-			'ajax_populate'          => true,
-			self::VIEW_BULK_EDITABLE => false,
-		];
+	public function get_view( $context ) {
+		return self::CONTEXT_SINGLE === $context ? new Editing\View\AjaxSelect() : false;
 	}
 
 	public function get_paginated_options( $search, $page, $id = null ) {
 		$entities = new Select\Entities\Taxonomy( [
 			'search'     => $search,
 			'page'       => $page,
-			'taxonomy'   => $this->column->get_taxonomy(),
+			'taxonomy'   => $this->taxonomy,
 			'object_ids' => [ $id ],
 		] );
 
@@ -55,12 +54,6 @@ class PrimaryTaxonomy extends Editing\Model\Meta
 			$entities,
 			new Select\Formatter\TermName( $entities )
 		);
-	}
-
-	public function register_settings() {
-		parent::register_settings();
-
-		$this->column->remove_setting( 'bulk_edit' );
 	}
 
 }

@@ -48,7 +48,7 @@ class IsIndexed extends AC\Column\Meta
 	}
 
 	public function editing() {
-		return new Editing\Post\IsIndexed( $this, $this->get_default_post_type_index() );
+		return new Editing\Post\IsIndexed( $this->get_post_type(), $this->get_default_post_type_index() );
 	}
 
 	public function search() {

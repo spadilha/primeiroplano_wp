@@ -42,7 +42,7 @@ class PrimaryTaxonomy extends AC\Column\Meta
 	}
 
 	public function editing() {
-		return new Editing\Post\PrimaryTaxonomy( $this );
+		return new Editing\Post\PrimaryTaxonomy( $this->get_taxonomy() );
 	}
 
 	public function filtering() {

@@ -17,7 +17,10 @@ class FocusKW extends AC\Column
 	}
 
 	public function editing() {
-		return new Editing\Post\FocusKW( $this );
+		return new ACP\Editing\Service\Basic(
+			( new ACP\Editing\View\Text() )->set_placeholder( __( 'Enter your SEO Focus Keywords', 'codepress-admin-columns' ) ),
+			new ACP\Editing\Storage\Post\Meta( '_yoast_wpseo_focuskw' )
+		);
 	}
 
 	public function export() {

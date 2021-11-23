@@ -28,6 +28,7 @@ if( function_exists('acf_add_options_page') )
 
 /************* THUMBNAIL SIZE OPTIONS *********************/
 add_image_size( 'square', 356, 356, true);
+add_image_size( 'cartaz', 324, 454, true);
 
 
 /************* CALL CORE FUNCTIONS *********************/
@@ -140,6 +141,14 @@ function my_custom_fonts() {
     .bulk-actions select, .select-form select {background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E') !important;}
   </style>";
 }
+
+
+/************* ADD QUERY VARS *********************/
+function add_query_vars($param) {
+  $param[] = "ed"; // represents the name of the product category as shown in the URL
+  return $param;
+}
+add_filter('query_vars', 'add_query_vars');
 
 
 

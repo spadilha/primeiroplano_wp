@@ -21,7 +21,10 @@ class MetaDesc extends AC\Column
 	}
 
 	public function editing() {
-		return new Editing\Post\MetaDesc( $this );
+		return new ACP\Editing\Service\Basic(
+			( new ACP\Editing\View\TextArea() )->set_placeholder( __( 'Enter your SEO Meta Description', 'codepress-admin-columns' ) ),
+			new ACP\Editing\Storage\Post\Meta( $this->get_meta_key() )
+		);
 	}
 
 	public function export() {

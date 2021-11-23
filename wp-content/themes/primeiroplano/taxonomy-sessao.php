@@ -31,14 +31,19 @@
 
 				$filmes = new WP_Query(array(
 					'post_type' => 'filme',
-					'orderby' => 'title',
-					'order' => 'ASC',
+					'orderby' 	=> 'title',
+					'order' 	=> 'ASC',
 					'tax_query' => array(
 						'relation' => 'AND',
 						array(
-							'taxonomy' => 'sessao',
-							'field' => 'slug',
-							'terms' => $subs->slug,
+							'taxonomy' 	=> 'sessao',
+							'field' 	=> 'slug',
+							'terms' 	=> $subs->slug,
+						),
+						array(
+							'taxonomy'	=> 'edicao',
+							'field' 	=> 'slug',
+							'terms' 	=> $editioslug,
 						),
 					),
 				));
@@ -78,7 +83,28 @@
 
 			<div id="noticias-section" class="row flexbox">
 
-				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+				<?php
+
+				$filmes = new WP_Query(array(
+					'post_type' => 'filme',
+					'orderby' 	=> 'title',
+					'order' 	=> 'ASC',
+					'tax_query' => array(
+						'relation' => 'AND',
+						array(
+							'taxonomy' 	=> 'sessao',
+							'field' 	=> 'term_id',
+							'terms' 	=> $thisID
+						),
+						array(
+							'taxonomy'	=> 'edicao',
+							'field' 	=> 'slug',
+							'terms' 	=> $editioslug,
+						),
+					),
+				));
+
+				if ($filmes->have_posts()) : while ($filmes->have_posts()) : $filmes->the_post(); ?>
 
 					<article class="noticia">
 
@@ -105,6 +131,8 @@
 
 	</div>
 </main>
+
+<?php get_template_part( 'template-parts/carousel-edicoes' ); ?>
 
 <?php get_footer(); ?>
 

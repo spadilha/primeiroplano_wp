@@ -16,76 +16,83 @@
 
 		<?php
 
+			// OUTRAS EDIÇÕES DENTRO DA NOVA PLATAFORMA
 			$issues = get_terms( 'edicao', array(
 				'order'		 => 'DESC',
 				'orderby'    => 'slug',
 				'hide_empty' => 0,
-				'exclude'	 => array($thiseditionid),
+				'exclude'	 => array( $thiseditionid ),
 			) );
 
 			foreach ($issues as $cat) {
-
 				$editionid = $cat->term_id;
 				$editioslug = $cat->slug;
 
-				$image = get_field('cartaz', 'edicao_' . $editionid);
+				$image = get_field( 'cartaz', 'edicao_' . $editionid );
 		    	$ano = $cat->name;
 
-		    	if($editionid == $lasteditionid){
+		    	if( $editionid == $lasteditionid ){
 					$link = SITEHOME;
 				} else {
-					$link = get_term_link( $editioslug, 'edicao' );
+
+					$home = get_field( 'home_page', 'edicao_' . $editionid );
+
+					if( !empty( $home ) ) {
+						$link = $home;
+					} else {
+
+						$link = get_term_link( $editioslug, 'edicao' );
+					}
 				}
 
+				$ed_ativa = get_field('ed_ativa', 'edicao_' . $editionid);
 
+				if($ed_ativa){
 			?>
 
-			<div class="edicao">
+				<div class="edicao">
 
-		        <?php if($link){ ?><a href="<?= $link ?>" title="Festival Primeiro Plano - <?= $ano ?>"><?php } ?>
+			        <?php if( $link ){ ?><a href="<?= $link ?>" title="Festival Primeiro Plano - <?= $ano ?>"><?php } ?>
 
-		            <?php if($image){ ?>
-		                <img src="<?= $image ?>" alt="">
-		            <?php } ?>
+			            <?php if( $image ){ ?>
+			                <img src="<?= $image['sizes']['cartaz'] ?>" alt="">
+			            <?php } ?>
 
-		            <?php if($ano){ ?>
-		            	<h3><?= $ano ?></h3>
-		        	<?php } ?>
+			            <?php if( $ano ){ ?>
+			            	<h3><?= $ano ?></h3>
+			        	<?php } ?>
 
-		        <?php if($link){ ?></a><?php } ?>
-			</div>
+			        <?php if( $link ){ ?></a><?php } ?>
+				</div><?php
 
-		<?php } ?>
+				}
 
-
-
-
-
-		<?php
+			}
 
 
-		    $edicoes = get_field('edicoes_anteriores', 'options');
+			// EDIÇÕES MUITO ANTIGAS ALIMENTADAS EM OPÇÕES DO TEMA
+		    $edicoes = get_field( 'edicoes_anteriores', 'options');
 
 		    foreach ($edicoes as $ed) {
 
-		    	$image = $ed['sizes']['medium'];
+		    	$image = $ed['sizes']['cartaz'];
 		    	$ano = $ed['title'];
 				$link = $ed['description'];
 		?>
 
 				<div class="edicao">
 
-		        <?php if($link){ ?><a href="<?= $link ?>" title="Festival Primeiro Plano <?= $ano ?>" target="_blank" rel="noopener"><?php } ?>
+		        <?php if( $link){ ?><a href="<?= $link ?>" title="Festival Primeiro Plano <?= $ano ?>" target="_blank" rel="noopener"><?php } ?>
 
-		            <?php if($image){ ?>
+		            <?php if( $image){ ?>
 		                <img src="<?= $image ?>" alt="">
 		            <?php } ?>
 
-		            <?php if($ano){ ?>
+		            <?php if( $ano){ ?>
 		            	<h3><?= $ano ?></h3>
 		        	<?php } ?>
 
-		        <?php if($link){ ?></a><?php } ?>
+		        <?php if( $link){ ?></a><?php } ?>
 		        </div>
 
 		<?php } ?>
@@ -101,11 +108,11 @@
 
 jQuery(function($){
 
-    $('.edicoes-wrapper').on('init', function(slick){
-        $('#edicoes-anteriores').addClass('active');
+    $( '.edicoes-wrapper').on( 'init', function(slick){
+        $( '#edicoes-anteriores').addClass( 'active');
     });
 
-    $('.edicoes-wrapper').slick({
+    $( '.edicoes-wrapper').slick({
         autoplay: false,
         pauseOnHover: false,
         infinite: false,

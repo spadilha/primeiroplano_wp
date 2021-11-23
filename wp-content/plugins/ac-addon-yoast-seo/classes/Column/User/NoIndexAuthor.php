@@ -28,7 +28,7 @@ class NoIndexAuthor extends AC\Column\Meta
 	}
 
 	public function editing() {
-		return new Editing\User\ToggleOn( $this );
+		return new Editing\User\ToggleOn( $this->get_meta_key() );
 	}
 
 }

@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: 	Admin Columns Pro - Yoast SEO
-Version:        1.0.3
+Version:        1.1
 Description: 	Enhance Yoast SEO columns with Admin Columns Pro features
 Author:         AdminColumns.com
 Author URI:     https://www.admincolumns.com
@@ -24,7 +24,7 @@ if ( ! is_admin() ) {
 require_once __DIR__ . '/classes/Dependencies.php';
 
 add_action( 'after_setup_theme', function () {
-	$dependencies = new Dependencies( plugin_basename( __FILE__ ), '1.0.3' );
+	$dependencies = new Dependencies( plugin_basename( __FILE__ ), '1.1' );
 	$dependencies->requires_acp( '5.2.1' );
 	$dependencies->requires_php( '5.6.20' );
 

@@ -1,7 +1,12 @@
 == Changelog ==
 
+= 1.1 =
+Release Date: tbd
+
+* [Dependency] Requires Admin Columns Pro 5.6
+
 = 1.0.3 =
-Release Date: February 26th, 2020
+Release Date: February 26th, 2021
 
 * [Added] New Taxonomy SEO columns: SEO Title, Meta Description, Canonical URL, Noindex, Used in Sitemap, and Focus Keyword
 

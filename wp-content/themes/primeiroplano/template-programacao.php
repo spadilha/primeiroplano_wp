@@ -16,6 +16,8 @@ Template Name: Programação
 	</div>
 </main>
 
+<?php get_template_part( 'template-parts/carousel-edicoes' ); ?>
+
 <?php get_footer(); ?>
 
 </body>

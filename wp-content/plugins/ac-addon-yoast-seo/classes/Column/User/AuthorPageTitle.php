@@ -30,8 +30,8 @@ class AuthorPageTitle extends AC\Column\Meta
 		return $title;
 	}
 
-	public function get_value( $user_id ) {
-		$title = $this->get_raw_value( $user_id );
+	public function get_value( $id ) {
+		$title = $this->get_raw_value( $id );
 
 		if ( ! $title ) {
 			$icon = ac_helper()->html->tooltip(
@@ -41,7 +41,7 @@ class AuthorPageTitle extends AC\Column\Meta
 
 			$title = sprintf( '%s %s',
 				$icon,
-				$this->get_wp_seo_author_title( $user_id )
+				$this->get_wp_seo_author_title( $id )
 			);
 		}
 
